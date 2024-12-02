@@ -1,101 +1,105 @@
-import Image from "next/image";
+import { Header } from "@/components/header"
+import { RoadmapNav } from "@/components/roadmap-nav"
+import { ProjectArticle } from "@/components/project-article"
+import { AnimatedBackground } from "@/components/animated-background"
+import { AnimatedSection } from "@/components/animated-section"
+import { LottieAnimation } from "@/components/lottie-animation"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative min-h-screen bg-background text-foreground">
+      <AnimatedBackground />
+      <Header />
+      <RoadmapNav />
+      <main className="container mx-auto px-4 pt-20">
+        <AnimatedSection>
+          <section id="hero" className="py-20 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">Welcome to My Serious Portfolio</h1>
+              <p className="text-xl text-muted-foreground">I create professional and impactful solutions.</p>
+            </div>
+            <div className="flex-1">
+              <LottieAnimation />
+            </div>
+          </section>
+        </AnimatedSection>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        <AnimatedSection>
+          <section id="about" className="py-20">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">About Me</h2>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">I am a dedicated professional with expertise in web development and software engineering. With years of experience in creating robust and scalable applications, I bring a unique blend of technical skill and creative problem-solving to every project.</p>
+            <p className="leading-7 mt-4">My journey in tech began with a fascination for how things work, which led me to pursue a degree in Computer Science. Since then, I've worked on a diverse range of projects, from small startups to large enterprises, always focusing on delivering high-quality, user-centric solutions.</p>
+            <p className="leading-7 mt-4">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through tech talks and blog posts. I'm passionate about creating technology that makes a positive impact and always eager to take on new challenges.</p>
+          </section>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <section id="projects" className="py-20">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">My Projects</h2>
+            <div className="space-y-32">
+              <AnimatedSection>
+                <ProjectArticle
+                  title="Project 1"
+                  description="This innovative project showcases the power of modern web technologies. It demonstrates my ability to create responsive, accessible, and performant web applications."
+                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+1+Screenshot"
+                  technologies={["React", "Next.js", "TypeScript"]}
+                  websiteUrl="https://project1.example.com"
+                />
+              </AnimatedSection>
+              <AnimatedSection>
+                <ProjectArticle
+                  title="Project 2"
+                  description="An Android application that leverages the latest features of Kotlin and Java. This project highlights my mobile development skills and my ability to create user-friendly interfaces."
+                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+2+Screenshot"
+                  technologies={["Kotlin", "Java", "Android"]}
+                  websiteUrl="https://project2.example.com"
+                />
+              </AnimatedSection>
+              <AnimatedSection>
+                <ProjectArticle
+                  title="Project 3"
+                  description="A full-stack web application that demonstrates my proficiency in both frontend and backend technologies. This project showcases my ability to create scalable and maintainable software solutions."
+                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+3+Screenshot"
+                  technologies={["Node.js", "Express", "MongoDB", "React"]}
+                  websiteUrl="https://project3.example.com"
+                />
+              </AnimatedSection>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <section id="contact" className="py-20">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">Contact Me</h2>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">I'm always open to new opportunities and collaborations. Whether you have a project in mind, want to discuss potential partnerships, or just want to connect, I'd love to hear from you.</p>
+            <p className="leading-7 mt-4">You can reach me via email at <a href="mailto:your.email@example.com" className="text-primary hover:underline">your.email@example.com</a> or connect with me on LinkedIn. I typically respond within 24-48 hours.</p>
+            <p className="leading-7 mt-4">For quick inquiries, feel free to use the contact form below. I look forward to hearing from you!</p>
+            <form className="mt-6">
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
+                <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-sm font-medium text-foreground">Email</label>
+                <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="message" className="block text-sm font-medium text-foreground">Message</label>
+                <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+              </div>
+              <button type="submit" className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                Send Message
+              </button>
+            </form>
+          </section>
+        </AnimatedSection>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="bg-muted py-6 mt-20">
+        <div className="container mx-auto px-4 text-center text-muted-foreground">
+          <p>&copy; 2023 Your Name. All rights reserved.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
+
