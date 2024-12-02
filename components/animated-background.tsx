@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
+import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 
 export function AnimatedBackground() {
   const { theme } = useTheme()
