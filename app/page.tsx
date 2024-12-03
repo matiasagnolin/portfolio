@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { RoadmapNav } from "@/components/roadmap-nav"
 import { ProjectArticle } from "@/components/project-article"
 import { AnimatedBackground } from "@/components/animated-background"
 import { AnimatedSection } from "@/components/animated-section"
@@ -10,7 +9,6 @@ export default function Home() {
     <div className="relative min-h-screen bg-background text-foreground">
       <AnimatedBackground />
       <Header />
-      <RoadmapNav />
       <main className="container mx-auto px-4 pt-20">
         <AnimatedSection>
           <section id="hero" className="py-20 flex flex-col md:flex-row items-center gap-8">
