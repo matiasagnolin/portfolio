@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, FileText } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 import { ModeToggle } from "@/components/mode-toggle"
 
 export function Header() {

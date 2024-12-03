@@ -5,7 +5,6 @@ import { useTheme } from 'next-themes'
 
 export function VideoAnimation() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     if (videoRef.current) {
