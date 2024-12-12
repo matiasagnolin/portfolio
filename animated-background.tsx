@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export function AnimatedBackground() {
+  const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -13,20 +15,18 @@ export function AnimatedBackground() {
   if (!mounted) return null
 
   return (
-    <div className="inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <motion.div
-        className="absolute w-72 h-72"
+        className={`absolute top-1/3 -left-5 w-72 h-72 mix-blend-multiply filter opacity-70 ${
+          theme === 'dark' ? 'bg-purple-700' : 'bg-purple-300'
+        }`}
         style={{
-          top: '60vh', // Use viewport height for positioning
-          left: '-10%',
           borderRadius: '42% 56% 72% 28% / 42% 42% 56% 48%',
-          opacity: 0.7,
-          backgroundColor: 'rgb(255, 181, 132)',
-          transform: 'translateY(-50%)',
         }}
         animate={{
-          x: [0, 50, -50, 0],
-          y: [0, 30, -30, 0],
+          x: [0, 100, -100, 0],    // Move horizontally in a wider range
+          y: [0, -100, 100, 0],    // Move vertically in a wider range
+          scale: [1, 1.1, 0.9, 1], // Optional: add some size variation
           borderRadius: [
             '42% 56% 72% 28% / 42% 42% 56% 48%',
             '72% 28% 48% 48% / 28% 28% 72% 72%',
@@ -36,23 +36,18 @@ export function AnimatedBackground() {
         }}
         transition={{
           repeat: Infinity,
-          duration: 20,
+          duration: 20,            // Longer duration for smoother movement
           ease: "easeInOut",
+          times: [0, 0.333, 0.667, 1], // Optional: control timing of keyframes
         }}
       />
       <motion.div
-        className="absolute w-96 h-72 overflow-hidden"
-        style={{
-          top: '-5%',
-          right: '5%',
-          borderRadius: '42% 56% 72% 28% / 42% 42% 56% 48%',
-          opacity: 0.7,
-          backgroundColor: 'rgb(242, 225, 255)',
-          transform: 'translateY(-50%)',
-        }}
+        className={`absolute top-3/4 -right-8 w-72 h-72 rounded-full mix-blend-multiply filter  opacity-70 ${
+          theme === 'dark' ? 'bg-yellow-700' : 'bg-yellow-300'
+        }`}
         animate={{
-          x: [0, -50, 50, 0],
-          y: [0, 30, -30, 0],
+          x: [0, -80, 0],
+          y: [0, -10, 0],
           borderRadius: [
             '42% 56% 72% 28% / 42% 42% 56% 48%',
             '72% 28% 48% 48% / 28% 28% 72% 72%',
@@ -67,18 +62,12 @@ export function AnimatedBackground() {
         }}
       />
       <motion.div
-        className="absolute w-72 h-96"
-        style={{
-          top: '0',
-          left: '0',
-          borderRadius: '42% 56% 72% 28% / 42% 42% 56% 48%',
-          opacity: 0.7,
-          backgroundColor: 'rgb(255, 229, 166)',
-          transform: 'translateX(20%)',
-        }}
+        className={`absolute top-1/2 left-1/2 w-72 h-72 rounded-full mix-blend-multiply filter  opacity-70 ${
+          theme === 'dark' ? 'bg-pink-700' : 'bg-pink-300'
+        }`}
         animate={{
-          x: [0, -30, 30, 0],
-          y: [0, 20, -20, 0],
+          x: [0, -50, 50, 0],
+          y: [0, 50, -50, 0],
           borderRadius: [
             '42% 56% 72% 28% / 42% 42% 56% 48%',
             '72% 28% 48% 48% / 28% 28% 72% 72%',

@@ -12,17 +12,17 @@ interface ProjectArticleProps {
 
 export function ProjectArticle({ title, description, imageSrc, technologies, websiteUrl }: ProjectArticleProps) {
   return (
-    <article className="flex flex-col md:flex-row gap-6 bg-card rounded-lg overflow-hidden shadow-lg">
-      <div className="flex-1 p-6">
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+    <article className="flex flex-col md:flex-row gap-6  rounded-lg overflow-hidden ">
+      <div className="flex-1 p-10">
+        <h1 className="text-4xl font-bold mb-2">{title}</h1>
+        <div className="flex flex-wrap gap-2 mb-8">
           {technologies.map((tech, index) => (
-            <Badge key={index} variant="secondary" className="rounded-full px-3 py-1">
+            <Badge key={index} variant="secondary" className="rounded-full px-4 py-2">
               {tech}
             </Badge>
           ))}
         </div>
+        <p className="text-muted-foreground mb-4">{description}</p>
         <Button asChild>
           <a href={websiteUrl} target="_blank" rel="noopener noreferrer">Visit Project</a>
         </Button>

@@ -55,6 +55,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        'helvetica-neue': ['Helvetica Neue', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

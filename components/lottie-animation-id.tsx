@@ -1,12 +1,12 @@
 "use client";
 
 import Lottie from 'lottie-react';
-import animationData from "../public/portfolio-animation.json";
+import animationData from "../public/id-animation.json";
 
 
-export function LottieAnimation() {
+export function LottieAnimationId() {
   return (
-    <div style={{ width: '500px', height: '600px' }} className="relative overflow-visible">
+    <div style={{ width: '300px', height: '300px' }} className="relative overflow-visible">
       <Lottie
         animationData={animationData}
         alt="Portfolio animation"

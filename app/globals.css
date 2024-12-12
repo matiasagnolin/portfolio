@@ -1,3 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/playpen-sans?styles=169518');
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55?styles=15998');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -58,3 +64,66 @@
   }
 }
 
+.font-Raleway {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-italic-raleway {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.font-arimo {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-helvetica-neue {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.font-playpen-sans {
+  font-family: 'Playpen Sans', sans-serif; /* Ensure the font name matches exactly */
+}
+
+.font-archivo {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/* Add this to your CSS file */
+.highlight {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 0, 0.5); /* Highlight color */
+  animation: highlight-animation 3s forwards; /* Adjust duration as needed */
+}
+
+@keyframes highlight-animation {
+  0% {
+    left: -100%; /* Start off-screen */
+  }
+  100% {
+    left: 100%; /* Move to the right */
+  }
+}

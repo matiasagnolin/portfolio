@@ -1,4 +1,5 @@
 import { Header } from "@/components/header"
+import { LottieAnimationId } from "@/components/lottie-animation-id"
 import { ProjectArticle } from "@/components/project-article"
 import { AnimatedBackground } from "@/components/animated-background"
 import { AnimatedSection } from "@/components/animated-section"
@@ -6,15 +7,15 @@ import { LottieAnimation } from "@/components/lottie-animation"
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div>
       <AnimatedBackground />
       <Header />
       <main className="container mx-auto px-4 pt-20">
         <AnimatedSection>
           <section id="hero" className="py-20 flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1">
-              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">Welcome to My Serious Portfolio</h1>
-              <p className="text-xl text-muted-foreground">I create professional and impactful solutions.</p>
+            <div className="flex-1 pt-20">
+              <h1 className="scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-7xl mb-4">Matías Agnolin</h1>
+              <p className="text-xl text-muted-foreground">I help businesses to create scalable software solutions with a focus on performance and top-tier code quality</p>
             </div>
             <div className="flex-1">
               <LottieAnimation />
@@ -24,40 +25,119 @@ export default function Home() {
 
         <AnimatedSection>
           <section id="about" className="py-20">
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">About Me</h2>
-            <p className="leading-7 [&:not(:first-child)]:mt-6">I am a dedicated professional with expertise in web development and software engineering. With years of experience in creating robust and scalable applications, I bring a unique blend of technical skill and creative problem-solving to every project.</p>
-            <p className="leading-7 mt-4">My journey in tech began with a fascination for how things work, which led me to pursue a degree in Computer Science. Since then, I've worked on a diverse range of projects, from small startups to large enterprises, always focusing on delivering high-quality, user-centric solutions.</p>
-            <p className="leading-7 mt-4">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through tech talks and blog posts. I'm passionate about creating technology that makes a positive impact and always eager to take on new challenges.</p>
+            <h2 className="scroll-m-20  pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">About me</h2>
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="w-full md:w-1/4">
+                <LottieAnimationId />
+              </div>
+              <div className="w-full md:w-2/3">
+                <p className="leading-7 [&:not(:first-child)]:mt-6 font-helvetica-neue">
+                  <span className="text-6xl">
+                    I am a 
+                    <span className="relative inline-block">
+                      <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent">
+                        <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">    
+                        </svg>
+                      </span>
+                      <span className="bg-yellow-300 relative z-10 inline-block" style={{ padding: '0.1rem 0.2rem', borderRadius: '0.2rem', background: 'linear-gradient(to right, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0.2))' }}>
+                        Backend Software Engineer
+                      </span>
+                    </span>.
+                  </span>
+                  <br /><br />
+                  <span className="text-2xl relative inline-block font-Raleway">
+                    <span>I specialize in API integration and distributed systems designed for{" "}
+                      <span className="relative inline-block">
+                        <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent">
+                          <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0,5 Q25,0 50,5 T100,5" stroke="blue" strokeWidth="6" fill="none" />
+                          </svg>
+                        </span>
+                        high-traffic environments.
+                      </span>
+                    </span>
+                    <br /><br />
+                    I've worked for companies like {" "}
+                    <span className="relative inline-block group">
+                      <a href="https://example.com/ifco" className="font-Raleway font-bold text-2xl relative z-10">IFCO</a>
+                      <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent transition-all duration-300 ease-in-out transform scale-x-0 group-hover:scale-x-100">
+                        <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
+                          <path d="M0,5 Q25,0 50,5 T100,5" stroke="red" strokeWidth="3" fill="none" />
+                        </svg>
+                      </span>
+                    </span>, {" "}
+                    <span className="relative inline-block group">
+                      <a href="https://example.com/rappi" className="font-Raleway font-bold text-2xl relative z-10">Scytl</a>
+                      <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent transition-all duration-300 ease-in-out transform scale-x-0 group-hover:scale-x-100">
+                        <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
+                          <path d="M0,5 Q25,0 50,5 T100,5" stroke="red" strokeWidth="3" fill="none" />
+                        </svg>
+                      </span>
+                    </span>, {" "}
+                    <span className="relative inline-block group">
+                      <a href="https://example.com/scytl" className="font-Raleway font-bold text-2xl relative z-10">Modulr</a>
+                      <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent transition-all duration-300 ease-in-out transform scale-x-0 group-hover:scale-x-100">
+                        <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
+                          <path d="M0,5 Q25,0 50,5 T100,5" stroke="red" strokeWidth="3" fill="none" />
+                        </svg>
+                      </span>
+                    </span> and {" "}
+                    <span className="relative inline-block group">
+                      <a href="https://example.com/modulr" className="font-Raleway font-bold  text-2xl relative z-10">Rappi</a>
+                      <span className="absolute left-0 right-0 bottom-0 h-1 bg-transparent transition-all duration-300 ease-in-out transform scale-x-0 group-hover:scale-x-100">
+                        <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
+                          <path d="M0,5 Q25,0 50,5 T100,5" stroke="red" strokeWidth="3" fill="none" />
+                        </svg>
+                      </span>
+                    </span>.
+                    Different industries and different projects, but I've been always working with the following technologies:
+                    <div className="flex justify-center items-center">
+                      <div className="relative">
+
+                        <div className="flex items-center">
+                          <span className="font-italic-raleway text-4xl pl-2 text-center">
+                            Java* / Kotlin* / Python / NodeJS
+                          </span>
+                          <br /><br />
+                        </div>
+                        <span className="text-lg pr-2">(*mainly)</span>
+                      </div>
+                    </div>
+                  </span>
+                  <br /><br />
+                </p>
+              </div>
+            </div>
           </section>
         </AnimatedSection>
 
         <AnimatedSection>
           <section id="projects" className="py-20">
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">My Projects</h2>
+            <h2 className="scroll-m-20 pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0 mb-4">Projects</h2>
             <div className="space-y-32">
               <AnimatedSection>
                 <ProjectArticle
-                  title="Project 1"
-                  description="This innovative project showcases the power of modern web technologies. It demonstrates my ability to create responsive, accessible, and performant web applications."
-                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+1+Screenshot"
-                  technologies={["React", "Next.js", "TypeScript"]}
-                  websiteUrl="https://project1.example.com"
+                  title="European Parliament"
+                  description="I worked as a senior developer on building the software for deliverying the result on live at the moment that people were voting for the Parliament of the European Union, which was used in the last election (2024)."
+                  imageSrc="/european-parliament.png"
+                  technologies={["Java 17","SpringBoot", "SpringData", "SpringWeb", "PostgreSQL", "Kafka", "Redis"]}
+                  websiteUrl="https://results.elections.europa.eu/en/"
                 />
               </AnimatedSection>
               <AnimatedSection>
                 <ProjectArticle
-                  title="Project 2"
-                  description="An Android application that leverages the latest features of Kotlin and Java. This project highlights my mobile development skills and my ability to create user-friendly interfaces."
-                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+2+Screenshot"
-                  technologies={["Kotlin", "Java", "Android"]}
-                  websiteUrl="https://project2.example.com"
+                  title="Rappi"
+                  description="I worked on developing internal and external microservices for providing processes and calculations related to discounts and offers and creating a client profiling in order to keep people buying in App."
+                  imageSrc="/rappi-app.jpg"
+                  technologies={["Java 11","SpringBoot", "Kotlin", "Python", "NodeJS", "Gradle", "PostgreSQL", "RabbitMq", "Redis", "Swagger", "NodeJS"]}
+                  websiteUrl="https://rappi.com"
                 />
               </AnimatedSection>
               <AnimatedSection>
                 <ProjectArticle
-                  title="Project 3"
-                  description="A full-stack web application that demonstrates my proficiency in both frontend and backend technologies. This project showcases my ability to create scalable and maintainable software solutions."
-                  imageSrc="/placeholder.svg?height=300&width=500&text=Project+3+Screenshot"
+                  title="Modulr Finance"
+                  description="In this project, I worked on the integration between Modulr and Ripple to receive and process international payments."
+                  imageSrc="/modulr.svg"
                   technologies={["Node.js", "Express", "MongoDB", "React"]}
                   websiteUrl="https://project3.example.com"
                 />
@@ -92,9 +172,9 @@ export default function Home() {
           </section>
         </AnimatedSection>
       </main>
-      <footer className="bg-muted py-6 mt-20">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>&copy; 2023 Your Name. All rights reserved.</p>
+      <footer className="py-6 mt-20">
+        <div className="container mx-auto px-4 text-center">
+          <p>&copy; 2024 Matías Agnolin. All rights reserved.</p>
         </div>
       </footer>
     </div>
