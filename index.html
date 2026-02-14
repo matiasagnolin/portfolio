@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matías Agnolin – Backend Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --green: #3fb950;
+      --red: #f85149;
+      --blue: #58a6ff;
+      --border: #30363d;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 64px);
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      color: var(--blue);
+      margin-top: 2.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      margin-top: 0;
+      font-weight: 300;
+      font-family: "Roboto Mono", ui-monospace, monospace;
+      color: var(--red);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+      color: #8b949e;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-family: "Roboto Mono", ui-monospace, monospace;
+      color: #7ee787;
+      position: relative;
+      padding-right: 5.5rem;
+    }
+
+    .company-link {
+      font-style: italic;
+      font-weight: 200;
+      font-family: "Roboto Mono", ui-monospace, monospace;
+      text-decoration: none;
+      color: var(--green);
+      position: relative;
+    }
+    .company-link:hover {
+      text-decoration: none;
+    }
+    .company-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 2s ease;
+    }
+    .company-link:hover::after {
+      width: 100%;
+    }
+
+    .work-period {
+      position: absolute;
+      right: 0;
+      font-weight: 100;
+      font-family: "Roboto Mono", ui-monospace, monospace;
+    }
+
+    p {
+      margin: 0.4rem 0;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .red {
+      color: var(--red);
+    }
+
+    .muted {
+      color: #8b949e;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 0.3rem 0;
+    }
+
+    .block {
+      margin-top: 2rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--red);
+    }
+    footer a {
+      color: var(--red);
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<main>
+
+<h1># Matías Agnolin</h1>
+<p class="green">Software Engineer</p>
+<p class="muted">High-Volume Data • High Throughput • Event-Driven • Microservices</p>
+
+<div class="block">
+<h2>## About</h2>
+<p>
+Software engineer with around 10 years of experience building data-intensive systems in logistics, food delivery, finance and public sector domains.
+</p>
+</div>
+
+<div class="block">
+<h2>## Work</h2>
+
+<h3>### Extended Hire Charge — <a href="https://www.ifco.com" class="company-link" target="_blank" rel="noopener">IFCO Digital</a><span class="muted work-period">2024 – Present</span></h3>
+<p>
+Accounting and invoicing system that charges customers for over-utilization when assets are kept beyond the contractually agreed period. 
+Backend engine for high-volume, deterministic financial calculations and invoicing. Front-end for customer-facing portal and reporting.
+</p>
+<p class="muted">Java 25 • React  • TypeScript •  PostgreSQL • Redis • ActiveMq • Docker • Azure • K8s • Maven • Grafana</p>
+
+<h3>### European Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">Scytl SA</a><span class="muted work-period">2021 – 2024</span></h3>
+<p>
+Engine that generated and updated European Parliament websites from incoming data batches from multiple sources.  
+Then deployed on AWS with up-to-date content for the 2024 EU elections. The system also integrated with X (Twitter) for public information distribution and Signal for internal information distribution.
+</p>
+<p class="muted">Java 17 • Angular • Accesibility • AWS • Maven • Oracle • Kafka • Redis • Splunk • Jenkins</p>
+
+<h3>### Ripple Client Service — <a href="https://www.modulrfinance.com" class="company-link" target="_blank" rel="noopener">Modulr</a><span class="muted work-period">2020 – 2021</span></h3>
+<p>
+Integration bridge that processed data in batch and performed accounting for Ripple-currency payments (XRP - SEPA) within Modulr.
+</p>
+<p class="muted">Kotlin • Ktor • Gradle • PostgreSQL • Kafka • Redis • Docker • AWS • Jenkins</p>
+
+<h3>### Growth Team & Rappi Credits — <a href="https://www.rappi.com" class="company-link" target="_blank" rel="noopener">Rappi</a><span class="muted work-period">Mar – Sept 2020</span></h3>
+<p>
+Engine that processed offers configured by the business team to determine which applied to the logged-in customer. Offers included in-app discounts and RappiCredits cashback. The system was built for high request throughput.
+</p>
+<p class="muted">Java 11 • Kotlin • Node.js • PostgreSQL • MongoDB • Kafka • Redis • Jenkins • SignalFX</p>
+
+<h3>### UAE Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a><span class="muted work-period">2018 – 2020</span></h3>
+<p>
+Election platform for the United Arab Emirates parliament.  
+On-site control room during mock and live elections; direct client liaison for technical resolution and successful delivery.
+</p>
+<p class="muted">Monotlith - Java 8 • Spring Boot • Spring Data • Spring Web • Spring Security • Oracle • Jenkins • Ansible • OpenStack</p>
+
+<h3>### Investor's Branch — <a href="https://www.citibank.com" class="company-link" target="_blank" rel="noopener">Citibank</a><span class="muted work-period">2016 – 2018</span></h3>
+<p>
+Application for traders and sales: accounting and reconciliation with other systems for fixed-income instruments (bonds).  
+I had to learn the bond yield curve for coupon payment calculations and the different bond types in order to implement the business logic.
+</p>
+<p class="muted">Java 8 • Hibernate • Oracle</p>
+</div>
+
+<div class="block">
+<h2>## Education</h2>
+
+<h3>### Associate of Science: Cloud System and Services</h3>
+<p class="muted">Universitat Oberta de Catalunya — Barcelona, Spain</p>
+
+<h3>### Bachelor of Science: Software Development</h3>
+<p class="muted">Universidad Tecnológica Nacional — Buenos Aires, Argentina</p>
+
+<h3>### IELTS — Cambridge English Language Assessment</h3>
+<p class="muted">Overall Band Score 6.5 (B2/C1)</p>
+</div>
+
+<footer>
+<p>
+<a href="#">Download CV</a>
+</p>
+<p>
+<span>Contact:</span>
+<a href="mailto:matiasagnolin@gmail.com">Email</a> |
+<a href="https://github.com/youruser">GitHub</a> |
+<a href="https://linkedin.com/in/youruser">LinkedIn</a>
+</p>
+</footer>
+
+</main>
+
+</body>
+</html>
+
