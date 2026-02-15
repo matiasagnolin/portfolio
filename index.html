@@ -149,6 +149,139 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Print Styles */
+    @media print {
+      @page {
+        margin: 0;
+        size: A4;
+      }
+      
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-family: "Roboto Mono", ui-monospace, monospace !important;
+        font-size: 9pt !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+        padding: 10mm !important;
+      }
+      
+      main {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      
+      /* Hide unwanted elements */
+      footer,
+      .tagline,
+      #download-cv-btn {
+        display: none !important;
+      }
+      
+      /* Reduce heading sizes */
+      h1 {
+        font-size: 14pt !important;
+        margin-top: 0 !important;
+        margin-bottom: 4px !important;
+        color: #000 !important;
+      }
+      
+      h2 {
+        font-size: 11pt !important;
+        margin-top: 10px !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 2px !important;
+        border-bottom: 0.5px solid #000 !important;
+        color: #000 !important;
+      }
+      
+      h3 {
+        font-size: 9.5pt !important;
+        margin-top: 6px !important;
+        margin-bottom: 2px !important;
+        padding-right: 4.5rem !important;
+        color: #000 !important;
+      }
+      
+      /* Reduce paragraph spacing */
+      p {
+        font-size: 9pt !important;
+        margin: 2px 0 !important;
+        color: #000 !important;
+      }
+      
+      /* Reduce list spacing */
+      ul {
+        padding-left: 1rem !important;
+        margin: 4px 0 !important;
+      }
+      
+      li {
+        font-size: 9pt !important;
+        margin: 1px 0 !important;
+        color: #000 !important;
+      }
+      
+      /* Show contact info in print */
+      .print-contact {
+        display: block !important;
+        font-size: 9pt !important;
+        margin: 2px 0 4px 0 !important;
+        color: #000 !important;
+      }
+      
+      /* Hide web-only elements */
+      .green, .red, .muted {
+        color: #000 !important;
+      }
+      
+      .work-period {
+        font-size: 8pt !important;
+        color: #000 !important;
+      }
+      
+      .company-link {
+        color: #000 !important;
+        text-decoration: none !important;
+      }
+      
+      a {
+        color: #000 !important;
+        text-decoration: none !important;
+      }
+      
+      /* Block spacing - more space between sections */
+      .block {
+        margin-top: 20px !important;
+        page-break-inside: avoid;
+      }
+      
+      /* Space between projects */
+      h3 + p {
+        margin-top: 6px !important;
+      }
+      
+      h3 {
+        margin-top: 16px !important;
+      }
+      
+      /* Space after project description and tech stack */
+      p + p {
+        margin-top: 6px !important;
+      }
+      
+      /* Allow content to flow */
+      * {
+        page-break-inside: avoid;
+      }
+    }
+    
+    /* Hide print-only elements on screen */
+    .print-contact {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -157,7 +290,8 @@
 
 <h1># Matías Agnolin</h1>
 <p class="green">Software Engineer</p>
-<p class="muted">High-Volume Data • High Throughput • Event-Driven • Microservices</p>
+<p class="print-contact">+(34)632869088 | matiasagnolin@gmail.com | matiasdev.info</p>
+<p class="muted tagline">High-Volume Data • High Throughput • Event-Driven • Microservices</p>
 
 <div class="block">
 <h2>## About</h2>
@@ -195,7 +329,7 @@ Engine that processed offers configured by the business team to determine which 
 </p>
 <p class="muted">Java 11 • Kotlin • Node.js • PostgreSQL • MongoDB • Kafka • Redis • Jenkins • SignalFX</p>
 
-<h3>### UAE Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a><span class="muted work-period">2018 – 2020</span></h3>
+<h3>### UAE Parliament Elections — <a href="https://amaris.com/" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a><span class="muted work-period">2018 – 2020</span></h3>
 <p>
 Election platform for the United Arab Emirates parliament.  
 On-site control room during mock and live elections; direct client liaison for technical resolution and successful delivery.
@@ -225,7 +359,7 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
 
 <footer>
 <p>
-<a href="#">Download CV</a>
+<a href="#" id="download-cv-btn" onclick="window.print(); return false;">Download CV</a>
 </p>
 <p>
 <span>Contact:</span>
