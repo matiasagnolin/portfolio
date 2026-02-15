@@ -359,7 +359,7 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
 
 <footer>
 <p>
-<a href="#" id="download-cv-btn" onclick="window.print(); return false;">Download CV</a>
+<a href="#" id="cv-action-btn">Download CV</a>
 </p>
 <p>
 <span>Contact:</span>
@@ -368,6 +368,48 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
 <a href="https://linkedin.com/in/youruser">LinkedIn</a>
 </p>
 </footer>
+
+<script>
+(function() {
+  const btn = document.getElementById('cv-action-btn');
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const pdfUrl = 'cv.pdf';
+
+  if (isMobile && navigator.share) {
+    // Mobile with Web Share API support
+    btn.textContent = 'Share CV';
+    btn.addEventListener('click', async function(e) {
+      e.preventDefault();
+      try {
+        const response = await fetch(pdfUrl);
+        const blob = await response.blob();
+        const file = new File([blob], 'Matias-Agnolin-CV.pdf', { type: 'application/pdf' });
+        
+        await navigator.share({
+          files: [file],
+          title: 'Matías Agnolin - CV',
+          text: 'Software Engineer CV'
+        });
+      } catch (err) {
+        // If share fails or user cancels, fall back to download
+        const a = document.createElement('a');
+        a.href = pdfUrl;
+        a.download = 'Matias-Agnolin-CV.pdf';
+        a.click();
+      }
+    });
+  } else {
+    // Desktop or no Web Share API - direct download
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const a = document.createElement('a');
+      a.href = pdfUrl;
+      a.download = 'Matias-Agnolin-CV.pdf';
+      a.click();
+    });
+  }
+})();
+</script>
 
 </main>
 
