@@ -2,161 +2,477 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Matías Agnolin – Backend Engineer</title>
+  <title>Matías Agnolin — Software Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Software Engineer with 10 years building data-intensive systems in logistics, fintech, and public sector." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Barlow+Condensed:wght@200;300;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0d1117;
-      --text: #c9d1d9;
-      --green: #3fb950;
-      --red: #f85149;
-      --blue: #58a6ff;
-      --border: #30363d;
-      --max-width: 900px;
+      --bg:        #0d1117;
+      --text:      #c9d1d9;
+      --green:     #3fb950;
+      --amber:     #e3b341;
+      --blue:      #58a6ff;
+      --muted:     #8b949e;
+      --border:    #30363d;
+      --border-subtle: #21262d;
+      --h3green:   #7ee787;
+      --max-width: 1200px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       line-height: 1.6;
+      cursor: default;
+    }
+
+    /* ── Scanline texture overlay ─────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 999;
     }
 
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: clamp(24px, 5vw, 64px);
+      padding: clamp(32px, 6vw, 80px) clamp(24px, 5vw, 64px);
     }
 
-    h1, h2, h3 {
-      font-weight: 600;
-      color: var(--blue);
+    /* ── Entrance animations ──────────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes drawLine {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    .hero {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .block {
       margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .block:nth-of-type(1) { animation-delay: 0.30s; }
+    .block:nth-of-type(2) { animation-delay: 0.50s; }
+    .block:nth-of-type(3) { animation-delay: 0.65s; }
+
+    footer {
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+      animation-delay: 0.85s;
+    }
+
+    /* ── Glitch keyframes ─────────────────────────────────────── */
+    @keyframes glitch-clip-1 {
+      0%,  94%          { clip-path: inset(0 0 100% 0); transform: translate(0); }
+      95%               { clip-path: inset(8% 0 72% 0); transform: translate(-4px, 1px); }
+      96%               { clip-path: inset(52% 0 28% 0); transform: translate(4px, -1px); }
+      97%               { clip-path: inset(22% 0 58% 0); transform: translate(-3px, 2px); }
+      98%               { clip-path: inset(66% 0 12% 0); transform: translate(3px, -2px); }
+      99%               { clip-path: inset(40% 0 45% 0); transform: translate(-2px, 1px); }
+      100%              { clip-path: inset(0 0 100% 0); transform: translate(0); }
+    }
+
+    @keyframes glitch-clip-2 {
+      0%,  94%          { clip-path: inset(0 0 100% 0); transform: translate(0); }
+      95%               { clip-path: inset(60% 0 18% 0); transform: translate(5px, -1px); }
+      96%               { clip-path: inset(30% 0 50% 0); transform: translate(-5px, 2px); }
+      97%               { clip-path: inset(78% 0 5%  0); transform: translate(3px, -1px); }
+      98%               { clip-path: inset(15% 0 68% 0); transform: translate(-3px, 2px); }
+      99%               { clip-path: inset(46% 0 38% 0); transform: translate(2px, -1px); }
+      100%              { clip-path: inset(0 0 100% 0); transform: translate(0); }
+    }
+
+    @keyframes glitch-skew {
+      0%,  94%  { transform: skewX(0deg); }
+      95%        { transform: skewX(-1.5deg); }
+      96%        { transform: skewX(1.5deg); }
+      97%        { transform: skewX(-0.8deg); }
+      98%        { transform: skewX(0.8deg); }
+      99%        { transform: skewX(-0.4deg); }
+      100%       { transform: skewX(0deg); }
+    }
+
+    /* ── Hero / Header ────────────────────────────────────────── */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding-bottom: 2.5rem;
+      margin-bottom: 0;
+    }
+
+    .hero-left {
+      /* name + subtitle stacked */
+    }
+
+    .hero-right {
+      /* text flows wide, 2-3 lines max */
+    }
+
+    .hero-about-text {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.35;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    /* pixel name block */
+    .name-glitch-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      animation: glitch-skew 6s steps(1) infinite;
     }
 
     h1 {
-      font-size: clamp(1.75rem, 6vw, 2.5rem);
-      margin-top: 0;
-      font-weight: 300;
-      font-family: "Roboto Mono", ui-monospace, monospace;
-      color: var(--red);
+      font-family: "Press Start 2P", monospace;
+      font-size: clamp(1.8rem, 7vw, 4rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+      color: var(--text);
+      margin: 0;
+      text-transform: uppercase;
+      position: relative;
+      image-rendering: pixelated;
     }
 
+    /* ghost layers — the "stacked outline" effect from the image */
+    h1::before,
+    h1::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      text-transform: inherit;
+      color: transparent;
+      pointer-events: none;
+    }
+
+    /* layer 1 — dark outline offset, always visible (the stacked shadow) */
+    h1::before {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200, 210, 220, 0.18);
+      transform: translate(3px, 3px);
+      z-index: -1;
+    }
+
+    /* layer 2 — glitch slice, cyan tint */
+    h1::after {
+      color: #a8d8ea;
+      -webkit-text-stroke: 0px;
+      animation: glitch-clip-1 6s steps(1) infinite;
+      z-index: 2;
+    }
+
+    /* extra glitch layer via .name-glitch-wrap::after */
+    .name-glitch-wrap::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      font-family: "Press Start 2P", monospace;
+      font-size: clamp(1.8rem, 7vw, 4rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+      text-transform: uppercase;
+      color: #f85149;
+      animation: glitch-clip-2 6s steps(1) infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-meta {
+      margin-top: 0.75rem;
+    }
+
+    .hero-title {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    /* ── Section headings ─────────────────────────────────────── */
     h2 {
-      font-size: 1.2rem;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.4rem;
-      color: #8b949e;
+    }
+
+    h2 .hash {
+      color: var(--border);
+      font-weight: 300;
+    }
+
+    /* ── Work entries ─────────────────────────────────────────── */
+    .work-entry {
+      margin-bottom: 2.2rem;
+      padding-bottom: 2.2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .work-entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .work-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     h3 {
+      font-family: "Roboto Mono", monospace;
       font-size: 1rem;
-      font-family: "Roboto Mono", ui-monospace, monospace;
-      color: #7ee787;
-      position: relative;
-      padding-right: 5.5rem;
+      font-weight: 600;
+      color: var(--h3green);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    h3 .prefix {
+      color: var(--border);
+      font-weight: 300;
+      margin-right: 0.3em;
+    }
+
+    .work-period {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 100;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
     }
 
     .company-link {
       font-style: italic;
       font-weight: 200;
-      font-family: "Roboto Mono", ui-monospace, monospace;
       text-decoration: none;
       color: var(--green);
       position: relative;
+      transition: color 0.2s ease;
     }
-    .company-link:hover {
-      text-decoration: none;
-    }
+
     .company-link::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -1px;
       width: 0;
       height: 1px;
       background: currentColor;
-      transition: width 2s ease;
+      transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    .company-link:hover {
+      text-decoration: none;
+      color: var(--h3green);
+    }
+
     .company-link:hover::after {
       width: 100%;
     }
 
-    .work-period {
-      position: absolute;
-      right: 0;
-      font-weight: 100;
-      font-family: "Roboto Mono", ui-monospace, monospace;
+    .work-desc {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin: 0.4rem 0 0.8rem;
+      line-height: 1.65;
     }
 
-    p {
-      margin: 0.4rem 0;
+    /* ── Tech badges ──────────────────────────────────────────── */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
     }
 
-    .green {
-      color: var(--green);
+    .badge {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--muted);
+      background: var(--border-subtle);
+      border: 1px solid var(--border);
+      padding: 0.15em 0.55em;
+      letter-spacing: 0.04em;
+      transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      cursor: default;
     }
 
-    .red {
-      color: var(--red);
+    .badge:hover {
+      color: var(--h3green);
+      border-color: var(--h3green);
+      background: rgba(126, 231, 135, 0.06);
     }
 
-    .muted {
-      color: #8b949e;
+    /* ── Badge category colors ────────────────────────────────── */
+    .badge[data-type="lang"] { color: var(--blue); border-color: rgba(88, 166, 255, 0.3); }
+    .badge[data-type="infra"] { color: #f0883e; border-color: rgba(240, 136, 62, 0.3); }
+    .badge[data-type="db"] { color: #a5d6ff; border-color: rgba(165, 214, 255, 0.3); }
+    .badge[data-type="msg"] { color: var(--amber); border-color: rgba(227, 179, 65, 0.3); }
+
+    .badge[data-type="lang"]:hover  { color: var(--blue); background: rgba(88,166,255,0.08); border-color: var(--blue); }
+    .badge[data-type="infra"]:hover { color: #f0883e; background: rgba(240,136,62,0.08); border-color: #f0883e; }
+    .badge[data-type="db"]:hover    { color: #a5d6ff; background: rgba(165,214,255,0.08); border-color: #a5d6ff; }
+    .badge[data-type="msg"]:hover   { color: var(--amber); background: rgba(227,179,65,0.08); border-color: var(--amber); }
+
+    /* ── Education ────────────────────────────────────────────── */
+    .edu-entry {
+      margin-bottom: 1.4rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .edu-entry:last-child {
+      margin-bottom: 0;
     }
 
-    li {
-      margin: 0.3rem 0;
+    .edu-entry h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
     }
 
-    .block {
-      margin-top: 2rem;
+    .edu-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
     }
 
+    /* ── Footer ───────────────────────────────────────────────── */
     footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.95rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      color: var(--red);
-    }
-    footer a {
-      color: var(--red);
+      gap: 0.8rem;
+      color: var(--muted);
     }
 
-    a {
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      letter-spacing: 0.05em;
+    }
+
+    footer a:hover {
       color: var(--green);
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    #cv-action-btn {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid rgba(63, 185, 80, 0.4);
+      padding: 0.45em 1.2em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
     }
 
-    /* Print Styles */
+    #cv-action-btn:hover {
+      background: rgba(63, 185, 80, 0.1);
+      border-color: var(--green);
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .footer-sep {
+      color: var(--border);
+    }
+
+    /* ── Print Styles ─────────────────────────────────────────── */
+    .print-contact {
+      display: none;
+    }
+
     @media print {
       @page {
         margin: 0;
         size: A4;
       }
-      
+
       body {
         background: #fff !important;
         color: #000 !important;
@@ -165,122 +481,187 @@
         line-height: 1.3 !important;
         margin: 0 !important;
         padding: 10mm !important;
+        cursor: default !important;
       }
-      
+
+      body::before {
+        display: none !important;
+      }
+
       main {
         max-width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
       }
-      
-      /* Hide unwanted elements */
+
+      .block,
+      .hero,
+      footer {
+        opacity: 1 !important;
+        animation: none !important;
+        transform: none !important;
+      }
+
       footer,
       .tagline,
-      #download-cv-btn {
+      #cv-action-btn {
         display: none !important;
       }
-      
-      /* Reduce heading sizes */
+
+      .name-glitch-wrap,
+      .name-glitch-wrap::after {
+        animation: none !important;
+      }
+
       h1 {
+        font-family: "Roboto Mono", monospace !important;
         font-size: 14pt !important;
         margin-top: 0 !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 2px !important;
         color: #000 !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        animation: none !important;
+        -webkit-text-stroke: 0 !important;
       }
-      
+
+      h1::before,
+      h1::after {
+        display: none !important;
+      }
+
+      .hero-inner {
+        display: block !important;
+        padding-bottom: 6px !important;
+      }
+
+      .hero-right {
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-top: 4px !important;
+      }
+
+      .hero-about-text {
+        font-size: 8pt !important;
+        color: #000 !important;
+        margin: 2px 0 !important;
+      }
+
+      .hero-meta {
+        display: none !important;
+      }
+
       h2 {
-        font-size: 11pt !important;
+        font-size: 9pt !important;
         margin-top: 10px !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
         padding-bottom: 2px !important;
         border-bottom: 0.5px solid #000 !important;
         color: #000 !important;
+        letter-spacing: 0.1em !important;
       }
-      
+
       h3 {
-        font-size: 9.5pt !important;
-        margin-top: 6px !important;
-        margin-bottom: 2px !important;
-        padding-right: 4.5rem !important;
+        font-size: 8.5pt !important;
+        margin-top: 8px !important;
+        margin-bottom: 1px !important;
         color: #000 !important;
       }
-      
-      /* Reduce paragraph spacing */
-      p {
-        font-size: 9pt !important;
-        margin: 2px 0 !important;
-        color: #000 !important;
+
+      h3 .prefix { display: none !important; }
+
+      .work-entry {
+        margin-bottom: 10px !important;
+        padding-bottom: 10px !important;
+        border-bottom: none !important;
       }
-      
-      /* Reduce list spacing */
-      ul {
-        padding-left: 1rem !important;
-        margin: 4px 0 !important;
+
+      .work-entry-header {
+        display: flex !important;
       }
-      
-      li {
-        font-size: 9pt !important;
-        margin: 1px 0 !important;
-        color: #000 !important;
-      }
-      
-      /* Show contact info in print */
-      .print-contact {
-        display: block !important;
-        font-size: 9pt !important;
-        margin: 2px 0 4px 0 !important;
-        color: #000 !important;
-      }
-      
-      /* Hide web-only elements */
-      .green, .red, .muted {
-        color: #000 !important;
-      }
-      
+
       .work-period {
+        font-size: 7.5pt !important;
+        color: #000 !important;
+      }
+
+      .work-desc {
         font-size: 8pt !important;
         color: #000 !important;
+        margin: 2px 0 4px !important;
       }
-      
+
+      .tech-stack {
+        gap: 0.2rem !important;
+      }
+
+      .badge {
+        font-size: 7pt !important;
+        color: #000 !important;
+        background: none !important;
+        border: 0.5px solid #999 !important;
+        padding: 0.05em 0.3em !important;
+      }
+
       .company-link {
         color: #000 !important;
-        text-decoration: none !important;
+        font-style: normal !important;
       }
-      
+
+      .company-link::after { display: none !important; }
+
       a {
         color: #000 !important;
         text-decoration: none !important;
       }
-      
-      /* Block spacing - more space between sections */
+
+      .print-contact {
+        display: block !important;
+        font-size: 8pt !important;
+        margin: 2px 0 6px !important;
+        color: #000 !important;
+      }
+
+      .tagline {
+        display: none !important;
+      }
+
+      .hero-title {
+        color: #000 !important;
+        font-size: 8pt !important;
+      }
+
       .block {
-        margin-top: 20px !important;
+        margin-top: 14px !important;
         page-break-inside: avoid;
       }
-      
-      /* Space between projects */
-      h3 + p {
+
+      .edu-entry h3 {
         margin-top: 6px !important;
       }
-      
-      h3 {
-        margin-top: 16px !important;
-      }
-      
-      /* Space after project description and tech stack */
-      p + p {
-        margin-top: 6px !important;
-      }
-      
-      /* Allow content to flow */
+
       * {
         page-break-inside: avoid;
       }
     }
-    
-    /* Hide print-only elements on screen */
-    .print-contact {
-      display: none;
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .hero-right {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+        padding-left: 0;
+        padding-top: 1.2rem;
+      }
+
+      .name-glitch-wrap::after {
+        font-size: clamp(1.8rem, 7vw, 4rem);
+      }
     }
   </style>
 </head>
@@ -288,86 +669,207 @@
 
 <main>
 
-<h1># Matías Agnolin</h1>
-<p class="green">Software Engineer</p>
-<p class="print-contact">+(34)632869088 | matiasagnolin@gmail.com | matiasdev.info</p>
-<p class="muted tagline">High-Volume Data • High Throughput • Event-Driven • Microservices</p>
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="name-glitch-wrap" data-text="Matías Agnolin">
+          <h1 data-text="Matías Agnolin">Matías Agnolin</h1>
+        </div>
+        <p class="print-contact">+(34)632869088 · matiasagnolin@gmail.com · matiasdev.info</p>
+        <div class="hero-meta">
+          <span class="hero-title">Software Engineer</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <p class="hero-about-text">
+          With around 10 years of experience I specialized in building data-intensive and event driven systems.
+        </p>
+      </div>
+    </div>
+  </div>
 
-<div class="block">
-<h2>## About</h2>
-<p>
-Software engineer with around 10 years of experience building data-intensive systems in logistics, food delivery, finance and public sector domains.
-</p>
-</div>
+  <!-- ── Work ──────────────────────────────────────────────── -->
+  <div class="block">
+    <h2><span class="hash">##</span> Work</h2>
 
-<div class="block">
-<h2>## Work</h2>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Extended Hire Charge — <a href="https://www.ifco.com" class="company-link" target="_blank" rel="noopener">IFCO Digital</a>
+        </h3>
+        <span class="work-period">2024 – Present</span>
+      </div>
+      <p class="work-desc">
+        Accounting and invoicing system that charges customers for over-utilization when assets are kept beyond the contractually agreed period.
+        Backend engine for high-volume, deterministic financial calculations and invoicing. Front-end for customer-facing portal and reporting.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 25</span>
+        <span class="badge" data-type="lang">React</span>
+        <span class="badge" data-type="lang">TypeScript</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="msg">ActiveMQ</span>
+        <span class="badge" data-type="infra">Docker</span>
+        <span class="badge" data-type="infra">Azure</span>
+        <span class="badge" data-type="infra">K8s</span>
+        <span class="badge" data-type="infra">Maven</span>
+        <span class="badge" data-type="infra">Grafana</span>
+      </div>
+    </div>
 
-<h3>### Extended Hire Charge — <a href="https://www.ifco.com" class="company-link" target="_blank" rel="noopener">IFCO Digital</a><span class="muted work-period">2024 – Present</span></h3>
-<p>
-Accounting and invoicing system that charges customers for over-utilization when assets are kept beyond the contractually agreed period. 
-Backend engine for high-volume, deterministic financial calculations and invoicing. Front-end for customer-facing portal and reporting.
-</p>
-<p class="muted">Java 25 • React  • TypeScript •  PostgreSQL • Redis • ActiveMq • Docker • Azure • K8s • Maven • Grafana</p>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          European Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">Scytl SA</a>
+        </h3>
+        <span class="work-period">2021 – 2024</span>
+      </div>
+      <p class="work-desc">
+        Engine that generated and updated European Parliament websites from incoming data batches from multiple sources.
+        Deployed on AWS with up-to-date content for the 2024 EU elections. Integrated with X (Twitter) for public information distribution and Signal for internal distribution.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 17</span>
+        <span class="badge" data-type="lang">Angular</span>
+        <span class="badge" data-type="db">Oracle</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">AWS</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Splunk</span>
+        <span class="badge" data-type="infra">Maven</span>
+      </div>
+    </div>
 
-<h3>### European Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">Scytl SA</a><span class="muted work-period">2021 – 2024</span></h3>
-<p>
-Engine that generated and updated European Parliament websites from incoming data batches from multiple sources.  
-Then deployed on AWS with up-to-date content for the 2024 EU elections. The system also integrated with X (Twitter) for public information distribution and Signal for internal information distribution.
-</p>
-<p class="muted">Java 17 • Angular • Accesibility • AWS • Maven • Oracle • Kafka • Redis • Splunk • Jenkins</p>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Ripple Client Service — <a href="https://www.modulrfinance.com" class="company-link" target="_blank" rel="noopener">Modulr</a>
+        </h3>
+        <span class="work-period">2020 – 2021</span>
+      </div>
+      <p class="work-desc">
+        Integration bridge that processed data in batch and performed accounting for Ripple-currency payments (XRP – SEPA) within Modulr.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Kotlin</span>
+        <span class="badge" data-type="lang">Ktor</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">Docker</span>
+        <span class="badge" data-type="infra">AWS</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Gradle</span>
+      </div>
+    </div>
 
-<h3>### Ripple Client Service — <a href="https://www.modulrfinance.com" class="company-link" target="_blank" rel="noopener">Modulr</a><span class="muted work-period">2020 – 2021</span></h3>
-<p>
-Integration bridge that processed data in batch and performed accounting for Ripple-currency payments (XRP - SEPA) within Modulr.
-</p>
-<p class="muted">Kotlin • Ktor • Gradle • PostgreSQL • Kafka • Redis • Docker • AWS • Jenkins</p>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Growth Team &amp; Rappi Credits — <a href="https://www.rappi.com" class="company-link" target="_blank" rel="noopener">Rappi</a>
+        </h3>
+        <span class="work-period">Mar – Sept 2020</span>
+      </div>
+      <p class="work-desc">
+        Engine that processed offers configured by the business team to determine which applied to the logged-in customer. Offers included in-app discounts and RappiCredits cashback. Built for high request throughput.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 11</span>
+        <span class="badge" data-type="lang">Kotlin</span>
+        <span class="badge" data-type="lang">Node.js</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="db">MongoDB</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">SignalFX</span>
+      </div>
+    </div>
 
-<h3>### Growth Team & Rappi Credits — <a href="https://www.rappi.com" class="company-link" target="_blank" rel="noopener">Rappi</a><span class="muted work-period">Mar – Sept 2020</span></h3>
-<p>
-Engine that processed offers configured by the business team to determine which applied to the logged-in customer. Offers included in-app discounts and RappiCredits cashback. The system was built for high request throughput.
-</p>
-<p class="muted">Java 11 • Kotlin • Node.js • PostgreSQL • MongoDB • Kafka • Redis • Jenkins • SignalFX</p>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          UAE Parliament Elections — <a href="https://amaris.com/" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a>
+        </h3>
+        <span class="work-period">2018 – 2020</span>
+      </div>
+      <p class="work-desc">
+        Election platform for the United Arab Emirates parliament.
+        On-site control room during mock and live elections; direct client liaison for technical resolution and successful delivery.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 8</span>
+        <span class="badge" data-type="lang">Spring Boot</span>
+        <span class="badge" data-type="lang">Spring Security</span>
+        <span class="badge" data-type="db">Oracle</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Ansible</span>
+        <span class="badge" data-type="infra">OpenStack</span>
+      </div>
+    </div>
 
-<h3>### UAE Parliament Elections — <a href="https://amaris.com/" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a><span class="muted work-period">2018 – 2020</span></h3>
-<p>
-Election platform for the United Arab Emirates parliament.  
-On-site control room during mock and live elections; direct client liaison for technical resolution and successful delivery.
-</p>
-<p class="muted">Monotlith - Java 8 • Spring Boot • Spring Data • Spring Web • Spring Security • Oracle • Jenkins • Ansible • OpenStack</p>
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Investor's Branch — <a href="https://www.citibank.com" class="company-link" target="_blank" rel="noopener">Citibank</a>
+        </h3>
+        <span class="work-period">2016 – 2018</span>
+      </div>
+      <p class="work-desc">
+        Application for traders and sales: accounting and reconciliation with other systems for fixed-income instruments (bonds).
+        Implemented business logic for bond yield curve coupon payment calculations across multiple bond types.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 8</span>
+        <span class="badge" data-type="lang">Hibernate</span>
+        <span class="badge" data-type="db">Oracle</span>
+      </div>
+    </div>
+  </div>
 
-<h3>### Investor's Branch — <a href="https://www.citibank.com" class="company-link" target="_blank" rel="noopener">Citibank</a><span class="muted work-period">2016 – 2018</span></h3>
-<p>
-Application for traders and sales: accounting and reconciliation with other systems for fixed-income instruments (bonds).  
-I had to learn the bond yield curve for coupon payment calculations and the different bond types in order to implement the business logic.
-</p>
-<p class="muted">Java 8 • Hibernate • Oracle</p>
-</div>
+  <!-- ── Education ──────────────────────────────────────────── -->
+  <div class="block">
+    <h2><span class="hash">##</span> Education</h2>
 
-<div class="block">
-<h2>## Education</h2>
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> Associate of Science: Cloud System and Services</h3>
+      <p class="edu-meta">Universitat Oberta de Catalunya — Barcelona, Spain</p>
+    </div>
 
-<h3>### Associate of Science: Cloud System and Services</h3>
-<p class="muted">Universitat Oberta de Catalunya — Barcelona, Spain</p>
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> Bachelor of Science: Software Development</h3>
+      <p class="edu-meta">Universidad Tecnológica Nacional — Buenos Aires, Argentina</p>
+    </div>
 
-<h3>### Bachelor of Science: Software Development</h3>
-<p class="muted">Universidad Tecnológica Nacional — Buenos Aires, Argentina</p>
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> IELTS — Cambridge English Language Assessment</h3>
+      <p class="edu-meta">Overall Band Score 6.5 (B2/C1)</p>
+    </div>
+  </div>
 
-<h3>### IELTS — Cambridge English Language Assessment</h3>
-<p class="muted">Overall Band Score 6.5 (B2/C1)</p>
-</div>
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <a href="#" id="cv-action-btn">↓ Download CV</a>
+    <div class="footer-links">
+      <span>Contact:</span>
+      <a href="mailto:hello@matiasdev.info">Email</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com/matiasagnolin">GitHub</a>
+      <span class="footer-sep">·</span>
+      <a href="https://linkedin.com/in/matiasagnolin">LinkedIn</a>
+    </div>
+  </footer>
 
-<footer>
-<p>
-<a href="#" id="cv-action-btn">Download CV</a>
-</p>
-<p>
-<span>Contact:</span>
-<a href="mailto:matiasagnolin@gmail.com">Email</a> |
-<a href="https://github.com/youruser">GitHub</a> |
-<a href="https://linkedin.com/in/youruser">LinkedIn</a>
-</p>
-</footer>
+</main>
 
 <script>
 (function() {
@@ -376,22 +878,19 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
   const pdfUrl = 'cv.pdf';
 
   if (isMobile && navigator.share) {
-    // Mobile with Web Share API support
-    btn.textContent = 'Share CV';
+    btn.textContent = '↑ Share CV';
     btn.addEventListener('click', async function(e) {
       e.preventDefault();
       try {
         const response = await fetch(pdfUrl);
         const blob = await response.blob();
         const file = new File([blob], 'Matias-Agnolin-CV.pdf', { type: 'application/pdf' });
-        
         await navigator.share({
           files: [file],
           title: 'Matías Agnolin - CV',
           text: 'Software Engineer CV'
         });
       } catch (err) {
-        // If share fails or user cancels, fall back to download
         const a = document.createElement('a');
         a.href = pdfUrl;
         a.download = 'Matias-Agnolin-CV.pdf';
@@ -399,7 +898,6 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
       }
     });
   } else {
-    // Desktop or no Web Share API - direct download
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       const a = document.createElement('a');
@@ -411,8 +909,5 @@ I had to learn the bond yield curve for coupon payment calculations and the diff
 })();
 </script>
 
-</main>
-
 </body>
 </html>
-
