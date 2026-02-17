@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matías Agnolin — Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Software Engineer with 10 years building data-intensive systems in logistics, fintech, and public sector." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1117'/><polygon points='16,3 29,10 16,17 3,10' fill='%23c9d1d9'/><polygon points='3,10 16,17 16,29 3,22' fill='%234a5058'/><polygon points='29,10 29,22 16,29 16,17' fill='%236e7681'/><line x1='16' y1='3' x2='3' y2='10' stroke='%230d1117' stroke-width='1.2'/><line x1='16' y1='3' x2='29' y2='10' stroke='%230d1117' stroke-width='1.2'/><line x1='3' y1='10' x2='3' y2='22' stroke='%230d1117' stroke-width='1.2'/><line x1='29' y1='10' x2='29' y2='22' stroke='%230d1117' stroke-width='1.2'/><line x1='3' y1='22' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/><line x1='29' y1='22' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/><line x1='16' y1='17' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Barlow+Condensed:wght@200;300;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" media="print" href="data:text/css;base64,QHBhZ2UgewogIG1hcmdpbjogMDsKICBzaXplOiBBNDsKfQoKYm9keSB7CiAgYmFja2dyb3VuZDogI2ZmZiAhaW1wb3J0YW50OwogIGNvbG9yOiAjMDAwICFpbXBvcnRhbnQ7CiAgZm9udC1mYW1pbHk6ICJSb2JvdG8gTW9ubyIsIHVpLW1vbm9zcGFjZSwgbW9ub3NwYWNlICFpbXBvcnRhbnQ7CiAgZm9udC1zaXplOiA5cHQgIWltcG9ydGFudDsKICBsaW5lLWhlaWdodDogMS4zICFpbXBvcnRhbnQ7CiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7CiAgcGFkZGluZzogMTBtbSAhaW1wb3J0YW50OwogIGN1cnNvcjogZGVmYXVsdCAhaW1wb3J0YW50Owp9Cgpib2R5OjpiZWZvcmUgewogIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDsKfQoKLnNpdGUtbmF2IHsKICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7Cn0KCm1haW4gewogIG1heC13aWR0aDogMTAwJSAhaW1wb3J0YW50OwogIHBhZGRpbmc6IDAgIWltcG9ydGFudDsKICBtYXJnaW46IDAgIWltcG9ydGFudDsKfQoKLmJsb2NrLAouaGVybywKZm9vdGVyIHsKICBvcGFjaXR5OiAxICFpbXBvcnRhbnQ7CiAgYW5pbWF0aW9uOiBub25lICFpbXBvcnRhbnQ7CiAgdHJhbnNmb3JtOiBub25lICFpbXBvcnRhbnQ7Cn0KCmZvb3RlciwKLnRhZ2xpbmUsCiNjdi1hY3Rpb24tYnRuIHsKICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7Cn0KCi5uYW1lLWdsaXRjaC13cmFwLAoubmFtZS1nbGl0Y2gtd3JhcDo6YWZ0ZXIgewogIGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50Owp9CgpoMSB7CiAgZm9udC1mYW1pbHk6ICJSb2JvdG8gTW9ubyIsIG1vbm9zcGFjZSAhaW1wb3J0YW50OwogIGZvbnQtc2l6ZTogMTRwdCAhaW1wb3J0YW50OwogIG1hcmdpbi10b3A6IDAgIWltcG9ydGFudDsKICBtYXJnaW4tYm90dG9tOiAycHggIWltcG9ydGFudDsKICBjb2xvcjogIzAwMCAhaW1wb3J0YW50OwogIHRleHQtdHJhbnNmb3JtOiBub25lICFpbXBvcnRhbnQ7CiAgbGV0dGVyLXNwYWNpbmc6IDAgIWltcG9ydGFudDsKICBhbmltYXRpb246IG5vbmUgIWltcG9ydGFudDsKICAtd2Via2l0LXRleHQtc3Ryb2tlOiAwICFpbXBvcnRhbnQ7Cn0KCmgxOjpiZWZvcmUsCmgxOjphZnRlciB7CiAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50Owp9CgouaGVyby1pbm5lciB7CiAgZGlzcGxheTogYmxvY2sgIWltcG9ydGFudDsKICBwYWRkaW5nLWJvdHRvbTogNnB4ICFpbXBvcnRhbnQ7Cn0KCi5oZXJvLXJpZ2h0IHsKICBib3JkZXItbGVmdDogbm9uZSAhaW1wb3J0YW50OwogIHBhZGRpbmctbGVmdDogMCAhaW1wb3J0YW50OwogIG1hcmdpbi10b3A6IDRweCAhaW1wb3J0YW50Owp9CgouaGVyby1hYm91dC10ZXh0IHsKICBmb250LXNpemU6IDhwdCAhaW1wb3J0YW50OwogIGNvbG9yOiAjMDAwICFpbXBvcnRhbnQ7CiAgbWFyZ2luOiAycHggMCAhaW1wb3J0YW50Owp9CgouaGVyby1tZXRhIHsKICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7Cn0KCmgyIHsKICBmb250LXNpemU6IDlwdCAhaW1wb3J0YW50OwogIG1hcmdpbi10b3A6IDEwcHggIWltcG9ydGFudDsKICBtYXJnaW4tYm90dG9tOiA0cHggIWltcG9ydGFudDsKICBwYWRkaW5nLWJvdHRvbTogMnB4ICFpbXBvcnRhbnQ7CiAgYm9yZGVyLWJvdHRvbTogMC41cHggc29saWQgIzAwMCAhaW1wb3J0YW50OwogIGNvbG9yOiAjMDAwICFpbXBvcnRhbnQ7CiAgbGV0dGVyLXNwYWNpbmc6IDAuMWVtICFpbXBvcnRhbnQ7Cn0KCmgzIHsKICBmb250LXNpemU6IDguNXB0ICFpbXBvcnRhbnQ7CiAgbWFyZ2luLXRvcDogOHB4ICFpbXBvcnRhbnQ7CiAgbWFyZ2luLWJvdHRvbTogMXB4ICFpbXBvcnRhbnQ7CiAgY29sb3I6ICMwMDAgIWltcG9ydGFudDsKfQoKaDMgLnByZWZpeCB7CiAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50Owp9Cgoud29yay1lbnRyeSB7CiAgbWFyZ2luLWJvdHRvbTogMTBweCAhaW1wb3J0YW50OwogIHBhZGRpbmctYm90dG9tOiAxMHB4ICFpbXBvcnRhbnQ7CiAgYm9yZGVyLWJvdHRvbTogbm9uZSAhaW1wb3J0YW50Owp9Cgoud29yay1lbnRyeS1oZWFkZXIgewogIGRpc3BsYXk6IGZsZXggIWltcG9ydGFudDsKfQoKLndvcmstcGVyaW9kIHsKICBmb250LXNpemU6IDcuNXB0ICFpbXBvcnRhbnQ7CiAgY29sb3I6ICMwMDAgIWltcG9ydGFudDsKfQoKLndvcmstZGVzYyB7CiAgZm9udC1zaXplOiA4cHQgIWltcG9ydGFudDsKICBjb2xvcjogIzAwMCAhaW1wb3J0YW50OwogIG1hcmdpbjogMnB4IDAgNHB4ICFpbXBvcnRhbnQ7Cn0KCi50ZWNoLXN0YWNrIHsKICBnYXA6IDAuMnJlbSAhaW1wb3J0YW50Owp9CgouYmFkZ2UgewogIGZvbnQtc2l6ZTogN3B0ICFpbXBvcnRhbnQ7CiAgY29sb3I6ICMwMDAgIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kOiBub25lICFpbXBvcnRhbnQ7CiAgYm9yZGVyOiAwLjVweCBzb2xpZCAjOTk5ICFpbXBvcnRhbnQ7CiAgcGFkZGluZzogMC4wNWVtIDAuM2VtICFpbXBvcnRhbnQ7Cn0KCi5jb21wYW55LWxpbmsgewogIGNvbG9yOiAjMDAwICFpbXBvcnRhbnQ7CiAgZm9udC1zdHlsZTogbm9ybWFsICFpbXBvcnRhbnQ7Cn0KCi5jb21wYW55LWxpbms6OmFmdGVyIHsKICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7Cn0KCmEgewogIGNvbG9yOiAjMDAwICFpbXBvcnRhbnQ7CiAgdGV4dC1kZWNvcmF0aW9uOiBub25lICFpbXBvcnRhbnQ7Cn0KCi5wcmludC1jb250YWN0IHsKICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50OwogIGZvbnQtc2l6ZTogOHB0ICFpbXBvcnRhbnQ7CiAgbWFyZ2luOiAycHggMCA2cHggIWltcG9ydGFudDsKICBjb2xvcjogIzAwMCAhaW1wb3J0YW50Owp9CgouaGVyby10aXRsZSB7CiAgY29sb3I6ICMwMDAgIWltcG9ydGFudDsKICBmb250LXNpemU6IDhwdCAhaW1wb3J0YW50Owp9CgouYmxvY2sgewogIG1hcmdpbi10b3A6IDE0cHggIWltcG9ydGFudDsKICBwYWdlLWJyZWFrLWluc2lkZTogYXZvaWQ7Cn0KCi5lZHUtZW50cnkgaDMgewogIG1hcmdpbi10b3A6IDZweCAhaW1wb3J0YW50Owp9CgoqIHsKICBwYWdlLWJyZWFrLWluc2lkZTogYXZvaWQ7Cn0K" />
+  <script type="module" crossorigin src="/assets/index-DBsLVkBm.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BrTCBX0L.css">
+</head>
+<body>
+
+<!-- ── Sticky nav ──────────────────────────────────────────── -->
+<nav class="site-nav" id="site-nav">
+  <a class="nav-logo" href="#top" id="nav-logo-link">
+    <svg class="logo-triangle" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- top face -->
+      <polygon points="16,3 29,10 16,17 3,10" fill="#c9d1d9"/>
+      <!-- left face -->
+      <polygon points="3,10 16,17 16,29 3,22" fill="#4a5058"/>
+      <!-- right face -->
+      <polygon points="29,10 29,22 16,29 16,17" fill="#6e7681"/>
+      <!-- outer edges -->
+      <line x1="16" y1="3"  x2="3"  y2="10" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="16" y1="3"  x2="29" y2="10" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="3"  y1="10" x2="3"  y2="22" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="29" y1="10" x2="29" y2="22" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="3"  y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="29" y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+      <!-- vertical spine -->
+      <line x1="16" y1="17" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+    </svg>
+    <span class="nav-name">Matías</span>
+  </a>
+</nav>
+
+<main id="top">
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="name-glitch-wrap" data-text="Matías Agnolin">
+          <h1 data-text="Matías Agnolin">Matías Agnolin</h1>
+        </div>
+        <p class="print-contact">+(34)632869088 · matiasagnolin@gmail.com · matiasdev.info</p>
+        <div class="hero-meta">
+          <span class="hero-title">Software Engineer</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <p class="hero-about-text">
+          With around 10 years of experience I specialized in building data-intensive and event driven systems.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Work ──────────────────────────────────────────────── -->
+  <div class="block">
+    <h2><span class="hash">##</span> Work</h2>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Extended Hire Charge — <a href="https://www.ifco.com" class="company-link" target="_blank" rel="noopener">IFCO Digital</a>
+        </h3>
+        <span class="work-period">2024 – Present</span>
+      </div>
+      <p class="work-desc">
+        Accounting and invoicing system that charges customers for over-utilization when assets are kept beyond the contractually agreed period.
+        Backend engine for high-volume, deterministic financial calculations and invoicing. Front-end for customer-facing portal and reporting.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 25</span>
+        <span class="badge" data-type="lang">React</span>
+        <span class="badge" data-type="lang">TypeScript</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="msg">ActiveMQ</span>
+        <span class="badge" data-type="infra">Docker</span>
+        <span class="badge" data-type="infra">Azure</span>
+        <span class="badge" data-type="infra">K8s</span>
+        <span class="badge" data-type="infra">Maven</span>
+        <span class="badge" data-type="infra">Grafana</span>
+      </div>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          European Parliament Elections — <a href="https://www.scytl.com" class="company-link" target="_blank" rel="noopener">Scytl SA</a>
+        </h3>
+        <span class="work-period">2021 – 2024</span>
+      </div>
+      <p class="work-desc">
+        Engine that generated and updated European Parliament websites from incoming data batches from multiple sources.
+        Deployed on AWS with up-to-date content for the 2024 EU elections. Integrated with X (Twitter) for public information distribution and Signal for internal distribution.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 17</span>
+        <span class="badge" data-type="lang">Angular</span>
+        <span class="badge" data-type="db">Oracle</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">AWS</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Splunk</span>
+        <span class="badge" data-type="infra">Maven</span>
+      </div>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Ripple Client Service — <a href="https://www.modulrfinance.com" class="company-link" target="_blank" rel="noopener">Modulr</a>
+        </h3>
+        <span class="work-period">2020 – 2021</span>
+      </div>
+      <p class="work-desc">
+        Integration bridge that processed data in batch and performed accounting for Ripple-currency payments (XRP – SEPA) within Modulr.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Kotlin</span>
+        <span class="badge" data-type="lang">Ktor</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">Docker</span>
+        <span class="badge" data-type="infra">AWS</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Gradle</span>
+      </div>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Growth Team &amp; Rappi Credits — <a href="https://www.rappi.com" class="company-link" target="_blank" rel="noopener">Rappi</a>
+        </h3>
+        <span class="work-period">Mar – Sept 2020</span>
+      </div>
+      <p class="work-desc">
+        Engine that processed offers configured by the business team to determine which applied to the logged-in customer. Offers included in-app discounts and RappiCredits cashback. Built for high request throughput.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 11</span>
+        <span class="badge" data-type="lang">Kotlin</span>
+        <span class="badge" data-type="lang">Node.js</span>
+        <span class="badge" data-type="db">PostgreSQL</span>
+        <span class="badge" data-type="db">MongoDB</span>
+        <span class="badge" data-type="msg">Kafka</span>
+        <span class="badge" data-type="db">Redis</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">SignalFX</span>
+      </div>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          UAE Parliament Elections — <a href="https://amaris.com/" class="company-link" target="_blank" rel="noopener">for Scytl at Amaris</a>
+        </h3>
+        <span class="work-period">2018 – 2020</span>
+      </div>
+      <p class="work-desc">
+        Election platform for the United Arab Emirates parliament.
+        On-site control room during mock and live elections; direct client liaison for technical resolution and successful delivery.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 8</span>
+        <span class="badge" data-type="lang">Spring Boot</span>
+        <span class="badge" data-type="lang">Spring Security</span>
+        <span class="badge" data-type="db">Oracle</span>
+        <span class="badge" data-type="infra">Jenkins</span>
+        <span class="badge" data-type="infra">Ansible</span>
+        <span class="badge" data-type="infra">OpenStack</span>
+      </div>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-entry-header">
+        <h3>
+          <span class="prefix">###</span>
+          Investor's Branch — <a href="https://www.citibank.com" class="company-link" target="_blank" rel="noopener">Citibank</a>
+        </h3>
+        <span class="work-period">2016 – 2018</span>
+      </div>
+      <p class="work-desc">
+        Application for traders and sales: accounting and reconciliation with other systems for fixed-income instruments (bonds).
+        Implemented business logic for bond yield curve coupon payment calculations across multiple bond types.
+      </p>
+      <div class="tech-stack">
+        <span class="badge" data-type="lang">Java 8</span>
+        <span class="badge" data-type="lang">Hibernate</span>
+        <span class="badge" data-type="db">Oracle</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Education ──────────────────────────────────────────── -->
+  <div class="block">
+    <h2><span class="hash">##</span> Education</h2>
+
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> Associate of Science: Cloud System and Services</h3>
+      <p class="edu-meta">Universitat Oberta de Catalunya — Barcelona, Spain</p>
+    </div>
+
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> Bachelor of Science: Software Development</h3>
+      <p class="edu-meta">Universidad Tecnológica Nacional — Buenos Aires, Argentina</p>
+    </div>
+
+    <div class="edu-entry">
+      <h3><span class="prefix">###</span> IELTS — Cambridge English Language Assessment</h3>
+      <p class="edu-meta">Overall Band Score 6.5 (B2/C1)</p>
+    </div>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <a href="#" id="cv-action-btn">↓ Download CV</a>
+    <div class="footer-links">
+      <span>Contact:</span>
+      <a href="mailto:hello@matiasdev.info">Email</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com/matiasagnolin">GitHub</a>
+      <span class="footer-sep">·</span>
+      <a href="https://linkedin.com/in/matiasagnolin">LinkedIn</a>
+    </div>
+  </footer>
+
+</main>
+
+
+</body>
+</html>
