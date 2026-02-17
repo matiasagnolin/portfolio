@@ -1,6 +1,6 @@
 @media (max-width: 720px) {
   .hero-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1.5rem;
   }
 
@@ -9,6 +9,11 @@
     border-top: 1px solid var(--border-subtle);
     padding-left: 0;
     padding-top: 1.2rem;
+  }
+
+  .hero-about-text {
+    font-size: 1.2rem !important;
+    line-height: 1.4;
   }
 
   .name-glitch-wrap::after {
