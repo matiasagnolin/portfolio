@@ -1,0 +1,410 @@
+/* ── Docs page specific styles ────────────────────────────── */
+
+/* ── Docs hero ────────────────────────────────────────────── */
+.docs-hero {
+  padding-bottom: 2.5rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.docs-hero-label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.docs-hero h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0 0 1.2rem;
+  text-transform: none;
+  /* override glitch effects from hero.css */
+  animation: none;
+  image-rendering: auto;
+  position: static;
+}
+
+.docs-hero h1::before,
+.docs-hero h1::after {
+  display: none;
+}
+
+.docs-hero-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ── Section layout ───────────────────────────────────────── */
+.docs-section {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.docs-section:last-of-type {
+  border-bottom: none;
+}
+
+.docs-section h2 {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.docs-section h3 {
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.docs-section h3 .prefix {
+  color: var(--border);
+}
+
+.docs-body {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.75;
+  margin: 0.5rem 0 1.2rem;
+}
+
+.docs-body a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(63, 185, 80, 0.3);
+  transition: border-color 0.15s ease;
+}
+
+.docs-body a:hover {
+  border-color: var(--green);
+  text-decoration: none;
+}
+
+/* ── Code blocks ──────────────────────────────────────────── */
+.code-block {
+  background: #161b22;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 1.25rem 1.4rem;
+  margin: 1.2rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+.code-block-label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre;
+}
+
+/* syntax tokens */
+.t-comment  { color: #6e7681; font-style: italic; }
+.t-keyword  { color: var(--blue); }
+.t-string   { color: var(--h3green); }
+.t-number   { color: var(--amber); }
+.t-prop     { color: #f0883e; }
+.t-value    { color: #a5d6ff; }
+.t-tag      { color: var(--blue); }
+.t-attr     { color: #f0883e; }
+.t-selector { color: var(--h3green); }
+.t-muted    { color: var(--muted); }
+.t-green    { color: var(--green); }
+.t-red      { color: #f85149; }
+
+/* ── Metric cards ─────────────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric-card {
+  background: #161b22;
+  border: 1px solid var(--border);
+  padding: 1.2rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--card-accent, var(--green));
+}
+
+.metric-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.metric-unit {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.metric-label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.metric-sub {
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+  display: block;
+  opacity: 0.7;
+}
+
+/* ── CI/CD Timeline ───────────────────────────────────────── */
+.timeline {
+  margin: 1.5rem 0;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-step {
+  position: relative;
+  padding: 0 0 1.6rem 1.2rem;
+}
+
+.timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -1.6rem;
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  background: var(--bg);
+  border: 1px solid var(--green);
+  transform: rotate(45deg);
+}
+
+.timeline-step.done::before {
+  background: var(--green);
+}
+
+.timeline-step-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--h3green);
+  margin: 0 0 0.3rem;
+}
+
+.timeline-step-body {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.timeline-step-body code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--blue);
+  background: var(--border-subtle);
+  padding: 0.05em 0.35em;
+}
+
+/* ── Before/After table ───────────────────────────────────── */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.ba-col {
+  background: #161b22;
+  border: 1px solid var(--border);
+  padding: 1.2rem 1.4rem;
+}
+
+.ba-col-label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ba-col.before .ba-col-label { color: #f85149; }
+.ba-col.after  .ba-col-label { color: var(--green); }
+
+.ba-col ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.ba-col li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+/* ── File tree ────────────────────────────────────────────── */
+.file-tree {
+  background: #161b22;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  padding: 1.25rem 1.4rem;
+  margin: 1.2rem 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.file-tree .ft-dir   { color: var(--blue); }
+.file-tree .ft-file  { color: var(--text); }
+.file-tree .ft-note  { color: var(--muted); font-style: italic; }
+.file-tree .ft-new   { color: var(--green); }
+
+/* ── Inline code ──────────────────────────────────────────── */
+code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.8em;
+  color: var(--blue);
+  background: var(--border-subtle);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--border);
+}
+
+/* ── Table of contents ────────────────────────────────────── */
+.toc {
+  background: #161b22;
+  border: 1px solid var(--border);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 3rem;
+  display: inline-block;
+  min-width: 280px;
+}
+
+.toc-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  counter-reset: toc;
+}
+
+.toc li {
+  margin-bottom: 0.4rem;
+}
+
+.toc a {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.toc a:hover {
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* ── Tag pills ────────────────────────────────────────────── */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--border-subtle);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .docs-hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+}
