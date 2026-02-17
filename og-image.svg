@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- scanline texture -->
+    <pattern id="scanlines" x="0" y="0" width="1200" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1200" height="2" fill="transparent"/>
+      <rect y="2" width="1200" height="2" fill="rgba(0,0,0,0.04)"/>
+    </pattern>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Roboto+Mono:wght@300&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- subtle grid lines -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#21262d" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#21262d" stroke-width="1"/>
+
+  <!-- scanlines overlay -->
+  <rect width="1200" height="630" fill="url(#scanlines)"/>
+
+  <!-- isometric cube — scaled up, left side -->
+  <!-- top face -->
+  <polygon points="160,180 340,270 160,360 -20,270" fill="#c9d1d9"/>
+  <!-- left face -->
+  <polygon points="-20,270 160,360 160,540 -20,450" fill="#4a5058"/>
+  <!-- right face -->
+  <polygon points="340,270 340,450 160,540 160,360" fill="#6e7681"/>
+  <!-- outer edges only -->
+  <line x1="160" y1="180" x2="-20" y2="270" stroke="#0d1117" stroke-width="3"/>
+  <line x1="160" y1="180" x2="340" y2="270" stroke="#0d1117" stroke-width="3"/>
+  <line x1="-20" y1="270" x2="-20" y2="450" stroke="#0d1117" stroke-width="3"/>
+  <line x1="340" y1="270" x2="340" y2="450" stroke="#0d1117" stroke-width="3"/>
+  <line x1="-20" y1="450" x2="160" y2="540" stroke="#0d1117" stroke-width="3"/>
+  <line x1="340" y1="450" x2="160" y2="540" stroke="#0d1117" stroke-width="3"/>
+  <line x1="160" y1="360" x2="160" y2="540" stroke="#0d1117" stroke-width="3"/>
+
+  <!-- right section: name + title -->
+  <!-- "MATÍAS AGNOLIN" — simulated pixel font with tspan -->
+  <text
+    x="460"
+    y="290"
+    font-family="'Press Start 2P', monospace"
+    font-size="52"
+    font-weight="400"
+    fill="#c9d1d9"
+    letter-spacing="2"
+  >MATÍAS</text>
+  <text
+    x="460"
+    y="370"
+    font-family="'Press Start 2P', monospace"
+    font-size="52"
+    font-weight="400"
+    fill="#c9d1d9"
+    letter-spacing="2"
+  >AGNOLIN</text>
+
+  <!-- divider line -->
+  <line x1="460" y1="400" x2="1140" y2="400" stroke="#30363d" stroke-width="1"/>
+
+  <!-- "SOFTWARE ENGINEER" subtitle -->
+  <text
+    x="460"
+    y="440"
+    font-family="'Roboto Mono', monospace"
+    font-size="20"
+    font-weight="300"
+    fill="#3fb950"
+    letter-spacing="6"
+  >SOFTWARE ENGINEER</text>
+
+  <!-- domain -->
+  <text
+    x="460"
+    y="490"
+    font-family="'Roboto Mono', monospace"
+    font-size="16"
+    font-weight="300"
+    fill="#8b949e"
+    letter-spacing="3"
+  >matiasdev.info</text>
+
+  <!-- bottom border accent -->
+  <rect x="0" y="618" width="1200" height="12" fill="#3fb950" opacity="0.6"/>
+</svg>
