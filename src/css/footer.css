@@ -1,0 +1,55 @@
+/* ── Footer ───────────────────────────────────────────────── */
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  letter-spacing: 0.05em;
+}
+
+footer a:hover {
+  color: var(--green);
+  text-decoration: none;
+}
+
+#cv-action-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 1px solid rgba(63, 185, 80, 0.4);
+  padding: 0.45em 1.2em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+#cv-action-btn:hover {
+  background: rgba(63, 185, 80, 0.1);
+  border-color: var(--green);
+  color: var(--green);
+  text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-sep {
+  color: var(--border);
+}

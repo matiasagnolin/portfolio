@@ -1,0 +1,12 @@
+:root {
+  --bg:            #0d1117;
+  --text:          #c9d1d9;
+  --green:         #3fb950;
+  --amber:         #e3b341;
+  --blue:          #58a6ff;
+  --muted:         #8b949e;
+  --border:        #30363d;
+  --border-subtle: #21262d;
+  --h3green:       #7ee787;
+  --max-width:     1200px;
+}

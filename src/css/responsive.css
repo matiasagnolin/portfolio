@@ -1,0 +1,17 @@
+@media (max-width: 720px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-right {
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    padding-left: 0;
+    padding-top: 1.2rem;
+  }
+
+  .name-glitch-wrap::after {
+    font-size: clamp(1.8rem, 7vw, 4rem);
+  }
+}
