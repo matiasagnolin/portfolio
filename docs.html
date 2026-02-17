@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case Study — Matías Agnolin Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Technical case study covering frontend design, CSS architecture, Vite build system, GitHub Actions CI/CD, SEO, and performance for matiasdev.info." />
+
+  <link rel="canonical" href="https://matiasdev.info/docs" />
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://matiasdev.info/docs" />
+  <meta property="og:title"       content="Case Study — How this portfolio was built" />
+  <meta property="og:description" content="Frontend design, CSS architecture, Vite, GitHub Actions CI/CD, SEO and performance — a full technical breakdown." />
+  <meta property="og:image"       content="https://matiasdev.info/og-image.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1117'/><polygon points='16,3 29,10 16,17 3,10' fill='%23c9d1d9'/><polygon points='3,10 16,17 16,29 3,22' fill='%234a5058'/><polygon points='29,10 29,22 16,29 16,17' fill='%236e7681'/><line x1='16' y1='3' x2='3' y2='10' stroke='%230d1117' stroke-width='1.2'/><line x1='16' y1='3' x2='29' y2='10' stroke='%230d1117' stroke-width='1.2'/><line x1='3' y1='10' x2='3' y2='22' stroke='%230d1117' stroke-width='1.2'/><line x1='29' y1='10' x2='29' y2='22' stroke='%230d1117' stroke-width='1.2'/><line x1='3' y1='22' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/><line x1='29' y1='22' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/><line x1='16' y1='17' x2='16' y2='29' stroke='%230d1117' stroke-width='1.2'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Barlow+Condensed:wght@200;300;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <script type="module" crossorigin src="/assets/nav-vUbZtGpB.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/nav-UqCTcZEj.css">
+  <link rel="stylesheet" crossorigin href="/assets/docs-7cj3qzgH.css">
+</head>
+<body>
+
+<!-- ── Sticky nav ──────────────────────────────────────────── -->
+<nav class="site-nav">
+  <a class="nav-logo" data-nav-href="/">
+    <svg class="logo-triangle" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="16,3 29,10 16,17 3,10" fill="#c9d1d9"/>
+      <polygon points="3,10 16,17 16,29 3,22" fill="#4a5058"/>
+      <polygon points="29,10 29,22 16,29 16,17" fill="#6e7681"/>
+      <line x1="16" y1="3"  x2="3"  y2="10" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="16" y1="3"  x2="29" y2="10" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="3"  y1="10" x2="3"  y2="22" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="29" y1="10" x2="29" y2="22" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="3"  y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="29" y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+      <line x1="16" y1="17" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
+    </svg>
+    <span class="nav-name">Matías</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link active" data-nav-href="/docs">Case Study</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <div class="hero block">
+    <div class="docs-hero">
+      <span class="docs-hero-label">## Case Study</span>
+      <h1>How this portfolio<br>was built</h1>
+      <p class="docs-hero-sub">
+        A full technical breakdown of every decision made building <a href="/">matiasdev.info</a> — from
+        typography and CSS architecture to CI/CD pipelines and SEO. Zero frameworks, zero runtime dependencies,
+        deployed automatically on every push to <code>main</code>.
+      </p>
+      <div class="tag-row" style="margin-top:1.5rem;">
+        <span class="tag">Vanilla HTML/CSS/JS</span>
+        <span class="tag">Vite 6</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Press Start 2P</span>
+        <span class="tag">CSS Animations</span>
+        <span class="tag">SVG</span>
+      </div>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="toc" style="margin-top:2.5rem;">
+      <p class="toc-title">Contents</p>
+      <ol>
+        <li><a href="#frontend">Frontend / UI Design</a></li>
+        <li><a href="#architecture">File Architecture</a></li>
+        <li><a href="#devops">DevOps / CI-CD</a></li>
+        <li><a href="#seo">SEO</a></li>
+        <li><a href="#performance">Performance</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ── 1. Frontend ───────────────────────────────────────── -->
+  <div class="docs-section block" id="frontend">
+    <h2><span class="hash">##</span> 01 — Frontend / UI Design</h2>
+
+    <h3><span class="prefix">###</span> Concept</h3>
+    <p class="docs-body">
+      The original portfolio was a single <code>index.html</code> file styled to look like a rendered
+      Markdown document in a dark code editor — literal <code>#</code> and <code>##</code> prefixes
+      visible in the headings, GitHub Dark palette, entirely monospaced. Authentic, but flat.
+    </p>
+    <p class="docs-body">
+      The redesign kept the concept but pushed it toward <strong>technical editorial</strong>: the contrast
+      between a pixel display font and a monospace body creates tension that feels
+      <em>designed</em>, not generated.
+    </p>
+
+    <h3><span class="prefix">###</span> Typography — three fonts, one system</h3>
+    <p class="docs-body">
+      Three fonts are loaded, each with a distinct role:
+    </p>
+    <div class="before-after">
+      <div class="ba-col before">
+        <span class="ba-col-label">Before — single font</span>
+        <ul>
+          <li>Roboto Mono everywhere</li>
+          <li>No visual hierarchy</li>
+          <li>All text competes equally</li>
+        </ul>
+      </div>
+      <div class="ba-col after">
+        <span class="ba-col-label">After — three-font system</span>
+        <ul>
+          <li><strong>Press Start 2P</strong> — h1 name + nav logo. Pixel bitmap aesthetic, unforgettable at any size.</li>
+          <li><strong>Barlow Condensed</strong> — hero description. Wide, thin, editorial. Creates contrast with the pixel name.</li>
+          <li><strong>Roboto Mono</strong> — everything else. Preserves the terminal/code identity.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3><span class="prefix">###</span> Glitch animation</h3>
+    <p class="docs-body">
+      The name glitch uses three layered pseudo-elements with <code>clip-path: inset()</code> animated
+      at <code>steps(1)</code> — instant frame cuts, no easing, exactly like a corrupted analog signal.
+      The animation is idle 94% of the time and fires a burst of 5 frames over 6% of a 6-second cycle.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">src/css/animations.css — glitch keyframes</span>
+      <pre><span class="t-selector">@keyframes</span> <span class="t-green">glitch-clip-1</span> {
+  <span class="t-comment">/* idle 94% of the time */</span>
+  <span class="t-prop">0%,  94%</span>  { <span class="t-attr">clip-path</span>: <span class="t-value">inset(0 0 100% 0)</span>; <span class="t-attr">transform</span>: <span class="t-value">translate(0)</span>; }
+  <span class="t-comment">/* 5 rapid frames — analog signal corruption */</span>
+  <span class="t-prop">95%</span>        { <span class="t-attr">clip-path</span>: <span class="t-value">inset(8% 0 72% 0)</span>;  <span class="t-attr">transform</span>: <span class="t-value">translate(-4px, 1px)</span>; }
+  <span class="t-prop">96%</span>        { <span class="t-attr">clip-path</span>: <span class="t-value">inset(52% 0 28% 0)</span>; <span class="t-attr">transform</span>: <span class="t-value">translate(4px, -1px)</span>; }
+  <span class="t-prop">97%</span>        { <span class="t-attr">clip-path</span>: <span class="t-value">inset(22% 0 58% 0)</span>; <span class="t-attr">transform</span>: <span class="t-value">translate(-3px, 2px)</span>; }
+  <span class="t-prop">98%</span>        { <span class="t-attr">clip-path</span>: <span class="t-value">inset(66% 0 12% 0)</span>; <span class="t-attr">transform</span>: <span class="t-value">translate(3px, -2px)</span>; }
+  <span class="t-prop">100%</span>       { <span class="t-attr">clip-path</span>: <span class="t-value">inset(0 0 100% 0)</span>;  <span class="t-attr">transform</span>: <span class="t-value">translate(0)</span>; }
+}
+
+<span class="t-comment">/* Three layers stacked on the same element:
+   h1::before  — offset shadow (+3px,+3px), always visible — depth
+   h1::after   — cyan tint, animated with glitch-clip-1
+   wrap::after — red tint, animated with glitch-clip-2 (offset timing) */</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> Isometric cube SVG logo</h3>
+    <p class="docs-body">
+      The logo is a hand-crafted SVG with three <code>&lt;polygon&gt;</code> faces at different gray
+      values to simulate a light source from above-right. The key insight: draw only the
+      <em>visible</em> edges as individual <code>&lt;line&gt;</code> elements — no shared borders
+      that would create unwanted dividing lines across faces.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">nav SVG — isometric cube</span>
+      <pre><span class="t-comment">&lt;!-- three faces at different luminance --&gt;</span>
+<span class="t-tag">&lt;polygon</span> <span class="t-attr">points</span>=<span class="t-string">"16,3 29,10 16,17 3,10"</span>  <span class="t-attr">fill</span>=<span class="t-string">"#c9d1d9"</span><span class="t-tag">/&gt;</span> <span class="t-comment">&lt;!-- top: bright --&gt;</span>
+<span class="t-tag">&lt;polygon</span> <span class="t-attr">points</span>=<span class="t-string">"3,10 16,17 16,29 3,22"</span>   <span class="t-attr">fill</span>=<span class="t-string">"#4a5058"</span><span class="t-tag">/&gt;</span> <span class="t-comment">&lt;!-- left: dark --&gt;</span>
+<span class="t-tag">&lt;polygon</span> <span class="t-attr">points</span>=<span class="t-string">"29,10 29,22 16,29 16,17"</span> <span class="t-attr">fill</span>=<span class="t-string">"#6e7681"</span><span class="t-tag">/&gt;</span> <span class="t-comment">&lt;!-- right: mid --&gt;</span>
+
+<span class="t-comment">&lt;!-- outer edges ONLY — no shared borders between faces --&gt;</span>
+<span class="t-tag">&lt;line</span> <span class="t-attr">x1</span>=<span class="t-string">"16"</span> <span class="t-attr">y1</span>=<span class="t-string">"3"</span>  <span class="t-attr">x2</span>=<span class="t-string">"3"</span>  <span class="t-attr">y2</span>=<span class="t-string">"10"</span> <span class="t-attr">stroke</span>=<span class="t-string">"#0d1117"</span> <span class="t-attr">stroke-width</span>=<span class="t-string">"1.2"</span><span class="t-tag">/&gt;</span>
+<span class="t-tag">&lt;line</span> <span class="t-attr">x1</span>=<span class="t-string">"16"</span> <span class="t-attr">y1</span>=<span class="t-string">"17"</span> <span class="t-attr">x2</span>=<span class="t-string">"16"</span> <span class="t-attr">y2</span>=<span class="t-string">"29"</span> <span class="t-attr">stroke</span>=<span class="t-string">"#0d1117"</span> <span class="t-attr">stroke-width</span>=<span class="t-string">"1.2"</span><span class="t-tag">/&gt;</span>
+<span class="t-comment">&lt;!-- ... 5 more outer edges --&gt;</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> Entrance animations</h3>
+    <p class="docs-body">
+      All sections use a single <code>fadeSlideUp</code> keyframe with a spring easing curve
+      (<code>cubic-bezier(0.16, 1, 0.3, 1)</code>) and staggered <code>animation-delay</code> —
+      the page builds itself from top to bottom over ~850ms. No JavaScript involved.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">src/css/animations.css — staggered entrance</span>
+      <pre><span class="t-selector">.block</span> {
+  <span class="t-attr">opacity</span>: <span class="t-number">0</span>;
+  <span class="t-attr">animation</span>: <span class="t-value">fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards</span>;
+}
+
+<span class="t-selector">.block:nth-of-type(1)</span> { <span class="t-attr">animation-delay</span>: <span class="t-number">0.30s</span>; }
+<span class="t-selector">.block:nth-of-type(2)</span> { <span class="t-attr">animation-delay</span>: <span class="t-number">0.50s</span>; }
+<span class="t-selector">.block:nth-of-type(3)</span> { <span class="t-attr">animation-delay</span>: <span class="t-number">0.65s</span>; }</pre>
+    </div>
+  </div>
+
+  <!-- ── 2. Architecture ───────────────────────────────────── -->
+  <div class="docs-section block" id="architecture">
+    <h2><span class="hash">##</span> 02 — File Architecture</h2>
+
+    <h3><span class="prefix">###</span> Before: 996 lines in one file</h3>
+    <p class="docs-body">
+      The portfolio started as a single <code>index.html</code> with all CSS inline in a
+      <code>&lt;style&gt;</code> block and JS in a <code>&lt;script&gt;</code> tag at the bottom.
+      Functional, but impossible to navigate as the file grew past 700, then 900 lines.
+    </p>
+
+    <h3><span class="prefix">###</span> After: separation by responsibility</h3>
+    <p class="docs-body">
+      Each CSS file has one clear job. When you need to change an animation, you open
+      <code>animations.css</code>. When you need to tweak the nav, you open <code>nav.css</code>.
+      No grep required.
+    </p>
+    <div class="file-tree">
+<span class="ft-dir">portfolio-markdown/</span>
+├── <span class="ft-file">index.html</span>          <span class="ft-note">← structure only, no inline styles</span>
+├── <span class="ft-new">docs.html</span>           <span class="ft-note">← this page</span>
+├── <span class="ft-dir">src/</span>
+│   ├── <span class="ft-dir">css/</span>
+│   │   ├── <span class="ft-file">tokens.css</span>      <span class="ft-note">← :root CSS variables</span>
+│   │   ├── <span class="ft-file">base.css</span>        <span class="ft-note">← reset, body, main, scanline overlay</span>
+│   │   ├── <span class="ft-file">animations.css</span>  <span class="ft-note">← @keyframes + entrance animations</span>
+│   │   ├── <span class="ft-file">nav.css</span>         <span class="ft-note">← sticky nav + cube logo</span>
+│   │   ├── <span class="ft-file">hero.css</span>        <span class="ft-note">← hero grid, h1, glitch effect</span>
+│   │   ├── <span class="ft-file">sections.css</span>    <span class="ft-note">← h2, h3, work entries, badges, education</span>
+│   │   ├── <span class="ft-file">footer.css</span>      <span class="ft-note">← footer, download CV button</span>
+│   │   ├── <span class="ft-file">print.css</span>       <span class="ft-note">← @media print (loaded with media="print")</span>
+│   │   ├── <span class="ft-file">responsive.css</span>  <span class="ft-note">← @media (max-width: 720px)</span>
+│   │   └── <span class="ft-new">docs.css</span>        <span class="ft-note">← docs-specific: code blocks, metrics, timeline</span>
+│   └── <span class="ft-dir">js/</span>
+│       └── <span class="ft-file">cv-download.js</span>  <span class="ft-note">← share/download logic (mobile/desktop)</span>
+├── <span class="ft-dir">public/</span>
+│   ├── <span class="ft-file">cv.pdf</span>          <span class="ft-note">← copied as-is to dist/ by Vite</span>
+│   ├── <span class="ft-new">og-image.svg</span>    <span class="ft-note">← Open Graph preview image</span>
+│   ├── <span class="ft-new">sitemap.xml</span>     <span class="ft-note">← for search engine crawlers</span>
+│   └── <span class="ft-new">robots.txt</span>      <span class="ft-note">← crawler instructions</span>
+├── <span class="ft-new">CNAME</span>               <span class="ft-note">← matiasdev.info (fixes domain on every deploy)</span>
+├── <span class="ft-new">.gitignore</span>
+├── <span class="ft-new">package.json</span>
+├── <span class="ft-new">vite.config.js</span>
+└── <span class="ft-dir">.github/workflows/</span>
+    └── <span class="ft-new">deploy.yml</span>
+    </div>
+
+    <h3><span class="prefix">###</span> Why Vite</h3>
+    <p class="docs-body">
+      Vite handles the build pipeline with near-zero configuration. For this project it does three things:
+      hot-reload in development, bundle + minify all CSS into a single hashed file in production,
+      and copy <code>public/</code> verbatim to <code>dist/</code>.
+      The multi-page config tells it to treat both <code>index.html</code> and <code>docs.html</code>
+      as entry points.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">vite.config.js</span>
+      <pre><span class="t-keyword">import</span> { defineConfig } <span class="t-keyword">from</span> <span class="t-string">'vite'</span>
+<span class="t-keyword">import</span> { resolve } <span class="t-keyword">from</span> <span class="t-string">'path'</span>
+
+<span class="t-keyword">export default</span> defineConfig({
+  <span class="t-attr">base</span>: <span class="t-string">'/'</span>,         <span class="t-comment">// works with custom domain</span>
+  <span class="t-attr">build</span>: {
+    <span class="t-attr">rollupOptions</span>: {
+      <span class="t-attr">input</span>: {
+        <span class="t-attr">main</span>: resolve(__dirname, <span class="t-string">'index.html'</span>),
+        <span class="t-attr">docs</span>: resolve(__dirname, <span class="t-string">'docs.html'</span>),
+      },
+    },
+  },
+})</pre>
+    </div>
+  </div>
+
+  <!-- ── 3. DevOps ─────────────────────────────────────────── -->
+  <div class="docs-section block" id="devops">
+    <h2><span class="hash">##</span> 03 — DevOps / CI-CD</h2>
+
+    <h3><span class="prefix">###</span> The problem with manual deploys</h3>
+    <p class="docs-body">
+      GitHub Pages supports deploying directly from a branch. The issue: every push overwrites the
+      <code>CNAME</code> file that stores the custom domain binding — meaning the domain would
+      silently detach after each deploy and had to be reconfigured manually in Settings.
+    </p>
+
+    <h3><span class="prefix">###</span> The solution: automated pipeline</h3>
+    <p class="docs-body">
+      A GitHub Actions workflow now runs on every push to <code>main</code>.
+      It builds with Vite, then uses <code>peaceiris/actions-gh-pages</code> to push
+      <code>dist/</code> to the <code>gh-pages</code> branch — with the <code>cname</code>
+      parameter that writes the <code>CNAME</code> file automatically on every deploy.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-step done">
+        <p class="timeline-step-title">git push origin main</p>
+        <p class="timeline-step-body">Developer pushes changes. GitHub Actions trigger fires automatically.</p>
+      </div>
+      <div class="timeline-step done">
+        <p class="timeline-step-title">actions/checkout@v4</p>
+        <p class="timeline-step-body">Workflow checks out the source code from <code>main</code>.</p>
+      </div>
+      <div class="timeline-step done">
+        <p class="timeline-step-title">npm ci</p>
+        <p class="timeline-step-body">Installs exact versions from <code>package-lock.json</code>. Faster and more reproducible than <code>npm install</code>.</p>
+      </div>
+      <div class="timeline-step done">
+        <p class="timeline-step-title">npm run build → dist/</p>
+        <p class="timeline-step-body">Vite bundles all CSS into one hashed file, minifies JS, copies <code>public/</code> verbatim. Completes in ~50ms.</p>
+      </div>
+      <div class="timeline-step done">
+        <p class="timeline-step-title">peaceiris/actions-gh-pages@v4</p>
+        <p class="timeline-step-body">Force-pushes <code>dist/</code> to the <code>gh-pages</code> branch. Writes <code>CNAME: matiasdev.info</code> automatically. Domain never detaches.</p>
+      </div>
+      <div class="timeline-step done">
+        <p class="timeline-step-title">matiasdev.info serves the new build</p>
+        <p class="timeline-step-body">GitHub Pages detects the <code>gh-pages</code> update and propagates globally. Total time: ~30 seconds from push to live.</p>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <span class="code-block-label">.github/workflows/deploy.yml</span>
+      <pre><span class="t-attr">name</span>: <span class="t-string">Deploy to GitHub Pages</span>
+
+<span class="t-keyword">on</span>:
+  <span class="t-attr">push</span>:
+    <span class="t-attr">branches</span>: [<span class="t-string">main</span>]
+
+<span class="t-keyword">permissions</span>:
+  <span class="t-attr">contents</span>: <span class="t-string">write</span>
+
+<span class="t-keyword">jobs</span>:
+  <span class="t-attr">deploy</span>:
+    <span class="t-attr">runs-on</span>: <span class="t-string">ubuntu-latest</span>
+    <span class="t-attr">steps</span>:
+      - <span class="t-attr">uses</span>: <span class="t-string">actions/checkout@v4</span>
+      - <span class="t-attr">uses</span>: <span class="t-string">actions/setup-node@v4</span>
+        <span class="t-attr">with</span>: { <span class="t-attr">node-version</span>: <span class="t-number">20</span>, <span class="t-attr">cache</span>: <span class="t-string">'npm'</span> }
+      - <span class="t-attr">run</span>: <span class="t-string">npm ci</span>
+      - <span class="t-attr">run</span>: <span class="t-string">npm run build</span>
+      - <span class="t-attr">uses</span>: <span class="t-string">peaceiris/actions-gh-pages@v4</span>
+        <span class="t-attr">with</span>:
+          <span class="t-attr">github_token</span>: <span class="t-string">${{ secrets.GITHUB_TOKEN }}</span>
+          <span class="t-attr">publish_dir</span>: <span class="t-string">./dist</span>
+          <span class="t-attr">cname</span>: <span class="t-string">matiasdev.info</span>  <span class="t-comment"># ← solves the domain detach problem</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> Source vs build separation</h3>
+    <p class="docs-body">
+      The <code>main</code> branch contains only source files — HTML, CSS, JS, config.
+      The <code>gh-pages</code> branch contains only the build output — minified, hashed, production-ready.
+      The two never mix. <code>dist/</code> is in <code>.gitignore</code> and never committed manually.
+    </p>
+  </div>
+
+  <!-- ── 4. SEO ─────────────────────────────────────────────── -->
+  <div class="docs-section block" id="seo">
+    <h2><span class="hash">##</span> 04 — SEO</h2>
+
+    <h3><span class="prefix">###</span> Goal: name presence, not keyword ranking</h3>
+    <p class="docs-body">
+      For a personal portfolio, competing for generic terms like "software engineer barcelona"
+      is not realistic. The actual SEO goal is narrower and achievable:
+      when someone googles <strong>"Matías Agnolin"</strong>, this site should appear immediately
+      and look professional when shared as a link.
+    </p>
+
+    <h3><span class="prefix">###</span> Open Graph — controlling link previews</h3>
+    <p class="docs-body">
+      Open Graph meta tags control what LinkedIn, WhatsApp, Slack and iMessage show when you
+      paste the URL. Without them, crawlers guess — usually badly.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">index.html — Open Graph tags</span>
+      <pre><span class="t-comment">&lt;!-- tells crawlers the canonical URL --&gt;</span>
+<span class="t-tag">&lt;link</span> <span class="t-attr">rel</span>=<span class="t-string">"canonical"</span> <span class="t-attr">href</span>=<span class="t-string">"https://matiasdev.info"</span> <span class="t-tag">/&gt;</span>
+
+<span class="t-comment">&lt;!-- controls LinkedIn / WhatsApp / Slack preview --&gt;</span>
+<span class="t-tag">&lt;meta</span> <span class="t-attr">property</span>=<span class="t-string">"og:title"</span>       <span class="t-attr">content</span>=<span class="t-string">"Matías Agnolin — Software Engineer"</span> <span class="t-tag">/&gt;</span>
+<span class="t-tag">&lt;meta</span> <span class="t-attr">property</span>=<span class="t-string">"og:description"</span> <span class="t-attr">content</span>=<span class="t-string">"10 years building data-intensive systems..."</span> <span class="t-tag">/&gt;</span>
+<span class="t-tag">&lt;meta</span> <span class="t-attr">property</span>=<span class="t-string">"og:image"</span>       <span class="t-attr">content</span>=<span class="t-string">"https://matiasdev.info/og-image.svg"</span> <span class="t-tag">/&gt;</span>
+
+<span class="t-comment">&lt;!-- controls Twitter/X preview --&gt;</span>
+<span class="t-tag">&lt;meta</span> <span class="t-attr">name</span>=<span class="t-string">"twitter:card"</span>  <span class="t-attr">content</span>=<span class="t-string">"summary_large_image"</span> <span class="t-tag">/&gt;</span>
+<span class="t-tag">&lt;meta</span> <span class="t-attr">name</span>=<span class="t-string">"twitter:image"</span> <span class="t-attr">content</span>=<span class="t-string">"https://matiasdev.info/og-image.svg"</span> <span class="t-tag">/&gt;</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> Structured data — Person schema</h3>
+    <p class="docs-body">
+      A <code>application/ld+json</code> script block tells Google explicitly who this page is about.
+      This is the mechanism behind Google's Knowledge Panel — the summary box that appears on the
+      right side of search results when you search for a person's name.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">index.html — JSON-LD Person schema</span>
+      <pre><span class="t-tag">&lt;script</span> <span class="t-attr">type</span>=<span class="t-string">"application/ld+json"</span><span class="t-tag">&gt;</span>
+{
+  <span class="t-attr">"@context"</span>: <span class="t-string">"https://schema.org"</span>,
+  <span class="t-attr">"@type"</span>: <span class="t-string">"Person"</span>,
+  <span class="t-attr">"name"</span>: <span class="t-string">"Matías Agnolin"</span>,
+  <span class="t-attr">"jobTitle"</span>: <span class="t-string">"Software Engineer"</span>,
+  <span class="t-attr">"url"</span>: <span class="t-string">"https://matiasdev.info"</span>,
+  <span class="t-attr">"sameAs"</span>: [
+    <span class="t-string">"https://github.com/matiasagnolin"</span>,
+    <span class="t-string">"https://linkedin.com/in/matiasagnolin"</span>
+  ]
+}
+<span class="t-tag">&lt;/script&gt;</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> sitemap.xml + robots.txt</h3>
+    <p class="docs-body">
+      <code>sitemap.xml</code> tells crawlers which URLs exist and their relative priority.
+      <code>robots.txt</code> tells crawlers they're allowed to index everything and where
+      to find the sitemap. Both live in <code>public/</code> so Vite copies them unchanged to <code>dist/</code>.
+    </p>
+
+    <h3><span class="prefix">###</span> Google Search Console</h3>
+    <p class="docs-body">
+      Once the site is live, verifying with Google Search Console lets you:
+      submit the sitemap directly, request immediate indexing, and see if Google
+      encounters any crawl errors. Verification is done by adding a single
+      <code>&lt;meta name="google-site-verification" ...&gt;</code> tag to the <code>&lt;head&gt;</code>.
+    </p>
+  </div>
+
+  <!-- ── 5. Performance ───────────────────────────────────────── -->
+  <div class="docs-section block" id="performance">
+    <h2><span class="hash">##</span> 05 — Performance</h2>
+
+    <h3><span class="prefix">###</span> Build output</h3>
+    <p class="docs-body">
+      Vite bundles all 9 CSS files into a single minified, content-hashed asset.
+      The entire runtime payload is under 4 KB gzipped.
+    </p>
+    <div class="metrics-grid">
+      <div class="metric-card" style="--card-accent: var(--green)">
+        <span class="metric-value">8.58<span class="metric-unit"> kB</span></span>
+        <span class="metric-label">CSS bundle</span>
+        <span class="metric-sub">2.46 kB gzipped</span>
+      </div>
+      <div class="metric-card" style="--card-accent: var(--blue)">
+        <span class="metric-value">1.40<span class="metric-unit"> kB</span></span>
+        <span class="metric-label">JS bundle</span>
+        <span class="metric-sub">0.72 kB gzipped</span>
+      </div>
+      <div class="metric-card" style="--card-accent: var(--amber)">
+        <span class="metric-value">0</span>
+        <span class="metric-label">Runtime deps</span>
+        <span class="metric-sub">zero JS frameworks</span>
+      </div>
+      <div class="metric-card" style="--card-accent: #f0883e">
+        <span class="metric-value">49<span class="metric-unit"> ms</span></span>
+        <span class="metric-label">Build time</span>
+        <span class="metric-sub">local, Vite 6</span>
+      </div>
+    </div>
+
+    <h3><span class="prefix">###</span> Zero runtime JavaScript dependencies</h3>
+    <p class="docs-body">
+      Every visual effect on the page — the glitch animation, entrance animations, hover states,
+      scanline texture, sticky nav blur — is pure CSS. No animation library, no scroll observer,
+      no React, no Vue. The only JavaScript that ships is the CV download/share button (<code>1.4 kB</code>),
+      which uses the native Web Share API on mobile and a programmatic <code>&lt;a download&gt;</code>
+      click on desktop.
+    </p>
+
+    <h3><span class="prefix">###</span> Google Fonts loading strategy</h3>
+    <p class="docs-body">
+      Three techniques prevent Flash of Unstyled Text (FOUT) and minimize render-blocking:
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">index.html — font loading</span>
+      <pre><span class="t-comment">&lt;!-- 1. preconnect: opens TCP connection early, before CSS is parsed --&gt;</span>
+<span class="t-tag">&lt;link</span> <span class="t-attr">rel</span>=<span class="t-string">"preconnect"</span> <span class="t-attr">href</span>=<span class="t-string">"https://fonts.googleapis.com"</span> <span class="t-tag">/&gt;</span>
+<span class="t-tag">&lt;link</span> <span class="t-attr">rel</span>=<span class="t-string">"preconnect"</span> <span class="t-attr">href</span>=<span class="t-string">"https://fonts.gstatic.com"</span> <span class="t-attr">crossorigin</span> <span class="t-tag">/&gt;</span>
+
+<span class="t-comment">&lt;!-- 2. display=swap: renders fallback font immediately,
+        swaps to web font when loaded — no invisible text --&gt;</span>
+<span class="t-tag">&lt;link</span> <span class="t-attr">href</span>=<span class="t-string">"...&display=swap"</span> <span class="t-attr">rel</span>=<span class="t-string">"stylesheet"</span> <span class="t-tag">/&gt;</span>
+
+<span class="t-comment">&lt;!-- 3. only the weights actually used are requested:
+        Roboto Mono: 100,200,300,400,600
+        Barlow Condensed: 200,300,700,800
+        Press Start 2P: 400 only (one weight, one file) --&gt;</span></pre>
+    </div>
+
+    <h3><span class="prefix">###</span> Scanlines without images</h3>
+    <p class="docs-body">
+      The subtle scanline texture overlay on the background is generated entirely in CSS
+      using <code>repeating-linear-gradient</code> — no PNG, no SVG, no extra HTTP request.
+      At 3% opacity it adds depth without affecting readability.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">src/css/base.css — scanline texture</span>
+      <pre><span class="t-selector">body::before</span> {
+  <span class="t-attr">content</span>: <span class="t-string">""</span>;
+  <span class="t-attr">position</span>: <span class="t-value">fixed</span>;
+  <span class="t-attr">inset</span>: <span class="t-number">0</span>;
+  <span class="t-attr">background-image</span>: <span class="t-value">repeating-linear-gradient(
+    0deg,
+    transparent,          transparent          2px,
+    rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+  )</span>;
+  <span class="t-attr">pointer-events</span>: <span class="t-value">none</span>;  <span class="t-comment">/* never blocks clicks */</span>
+  <span class="t-attr">z-index</span>: <span class="t-number">999</span>;          <span class="t-comment">/* always on top */</span>
+}</pre>
+    </div>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <a data-nav-href="/">← Back to portfolio</a>
+    <div class="footer-links">
+      <span>Source:</span>
+      <a href="https://github.com/matiasagnolin/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
