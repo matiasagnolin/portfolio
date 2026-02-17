@@ -63,24 +63,22 @@
 <nav class="site-nav" id="site-nav">
   <a class="nav-logo" href="#top" id="nav-logo-link">
     <svg class="logo-triangle" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top face -->
       <polygon points="16,3 29,10 16,17 3,10" fill="#c9d1d9"/>
-      <!-- left face -->
       <polygon points="3,10 16,17 16,29 3,22" fill="#4a5058"/>
-      <!-- right face -->
       <polygon points="29,10 29,22 16,29 16,17" fill="#6e7681"/>
-      <!-- outer edges -->
       <line x1="16" y1="3"  x2="3"  y2="10" stroke="#0d1117" stroke-width="1.2"/>
       <line x1="16" y1="3"  x2="29" y2="10" stroke="#0d1117" stroke-width="1.2"/>
       <line x1="3"  y1="10" x2="3"  y2="22" stroke="#0d1117" stroke-width="1.2"/>
       <line x1="29" y1="10" x2="29" y2="22" stroke="#0d1117" stroke-width="1.2"/>
       <line x1="3"  y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
       <line x1="29" y1="22" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
-      <!-- vertical spine -->
       <line x1="16" y1="17" x2="16" y2="29" stroke="#0d1117" stroke-width="1.2"/>
     </svg>
     <span class="nav-name">Matías</span>
   </a>
+  <div class="nav-right">
+    <a class="nav-link" data-nav-href="/docs">Case Study</a>
+  </div>
 </nav>
 
 <main id="top">
@@ -282,14 +280,14 @@
       <a href="https://github.com/matiasagnolin">GitHub</a>
       <span class="footer-sep">·</span>
       <a href="https://linkedin.com/in/matiasagnolin">LinkedIn</a>
-      <span class="footer-sep">·</span>
-      <a href="/docs">Case Study</a>
+
     </div>
   </footer>
 
 </main>
 
 <script type="module" src="./src/js/cv-download.js"></script>
+<script type="module" src="./src/js/nav.js"></script>
 
 </body>
 </html>

@@ -7,6 +7,7 @@
   z-index: 100;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 clamp(24px, 5vw, 64px);
   height: 52px;
   background: rgba(13, 17, 23, 0.85);
@@ -15,6 +16,32 @@
   border-bottom: 1px solid var(--border-subtle);
   opacity: 0;
   animation: fadeIn 0.5s ease 1s forwards;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--text);
 }
 
 .nav-logo {

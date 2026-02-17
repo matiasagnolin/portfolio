@@ -41,8 +41,15 @@ main {
 a {
   color: var(--green);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+button,
+[role="button"],
+label[for] {
+  cursor: pointer;
 }
