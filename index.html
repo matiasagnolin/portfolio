@@ -5,6 +5,7 @@
   <title>Matías Agnolin — Software Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Software Engineer with 10 years building data-intensive systems in logistics, fintech, and public sector." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1117'/><polygon points='16,3 29,28 3,28' fill='%23c9d1d9'/><polyline points='16,7 25,26 7,26' fill='none' stroke='%230d1117' stroke-width='2'/><polyline points='16,11 22,25 10,25' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='1'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Barlow+Condensed:wght@200;300;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
@@ -25,6 +26,60 @@
     * {
       box-sizing: border-box;
     }
+
+    /* ── Sticky nav ───────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 5vw, 64px);
+      height: 52px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      opacity: 0;
+      animation: fadeIn 0.5s ease 1s forwards;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-logo:hover .logo-triangle {
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
+    }
+
+    .nav-logo:hover .nav-name {
+      color: var(--text);
+    }
+
+    /* pixel triangle SVG */
+    .logo-triangle {
+      display: block;
+      transition: filter 0.2s ease;
+      image-rendering: pixelated;
+    }
+
+    .nav-name {
+      font-family: "Press Start 2P", monospace;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+
 
     html {
       scroll-behavior: smooth;
@@ -59,6 +114,7 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: clamp(32px, 6vw, 80px) clamp(24px, 5vw, 64px);
+      padding-top: calc(clamp(32px, 6vw, 80px) + 52px);
     }
 
     /* ── Entrance animations ──────────────────────────────────── */
@@ -488,6 +544,10 @@
         display: none !important;
       }
 
+      .site-nav {
+        display: none !important;
+      }
+
       main {
         max-width: 100% !important;
         padding: 0 !important;
@@ -667,7 +727,22 @@
 </head>
 <body>
 
-<main>
+<!-- ── Sticky nav ──────────────────────────────────────────── -->
+<nav class="site-nav" id="site-nav">
+  <a class="nav-logo" href="#top" id="nav-logo-link">
+    <svg class="logo-triangle" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- pixel-art triangle: filled white shape with inner stepped outline -->
+      <!-- outer fill -->
+      <polygon points="11,1 21,20 1,20" fill="#c9d1d9"/>
+      <!-- inner dark stepped outline — creates the pixel bevel effect -->
+      <polyline points="11,4 19,19 3,19" fill="none" stroke="#0d1117" stroke-width="1.5"/>
+      <polyline points="11,7 17,18 5,18" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    </svg>
+    <span class="nav-name">Matías</span>
+  </a>
+</nav>
+
+<main id="top">
 
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <div class="hero">
